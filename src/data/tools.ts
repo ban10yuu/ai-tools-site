@@ -7,7 +7,7 @@ export const tools: ToolInfo[] = [
     nameJa: 'ChatGPT',
     company: 'OpenAI',
     category: 'chatbot',
-    description: 'OpenAIが開発した世界最大級のAIチャットボット。GPT-4oを搭載し、テキスト生成・コード作成・画像認識など幅広いタスクに対応。',
+    description: 'OpenAIが開発した世界最大級のAIチャットボット。GPT-5.4を搭載し、テキスト生成・コード作成・画像認識など幅広いタスクに対応。',
     officialUrl: 'https://chat.openai.com',
     pricing: '無料 / Plus $20/月',
     rating: 4.8,
