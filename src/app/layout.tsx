@@ -55,6 +55,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://ai-tools-lab.vercel.app',
   },
+  verification: {
+    google: 'QNT_EwkmJ039_aVzqr1sKc_hySyn-ZpgLZDtAgxtsNo',
+  },
 };
 
 export default function RootLayout({
