@@ -1,12 +1,67 @@
 import Link from 'next/link';
 import { tools } from '@/data/tools';
 import { generalAffiliates } from '@/data/affiliates';
+import { getPopularArticles } from '@/lib/articles';
+import { TOOL_CATEGORY_LABELS, TOOL_CATEGORY_COLORS } from '@/lib/types';
 
 export default function Sidebar() {
   const topTools = tools.slice(0, 10);
+  const popularArticles = getPopularArticles(10);
+  const categories = Object.entries(TOOL_CATEGORY_LABELS);
 
   return (
     <aside className="space-y-6">
+      {/* Popular Articles */}
+      <div className="cyber-panel p-4">
+        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3 flex items-center gap-2">
+          <span className="w-1 h-4 bg-[#00d4ff] rounded-full" />
+          人気記事ランキング
+        </h2>
+        <ul className="space-y-2">
+          {popularArticles.map((article, i) => (
+            <li key={article.slug}>
+              <Link
+                href={`/article/${article.slug}/`}
+                className="flex items-start gap-2.5 py-1.5 group"
+              >
+                <span className={`rank-badge flex-shrink-0 mt-0.5 ${i < 1 ? 'rank-1' : i < 2 ? 'rank-2' : i < 3 ? 'rank-3' : 'rank-other'}`}>
+                  {i + 1}
+                </span>
+                <span className="text-xs text-[#c8cce0] group-hover:text-[#00ff88] transition-colors leading-snug line-clamp-2">
+                  {article.title}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Category Links */}
+      <div className="cyber-panel p-4">
+        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3 flex items-center gap-2">
+          <span className="w-1 h-4 bg-[#7c3aed] rounded-full" />
+          カテゴリ
+        </h2>
+        <ul className="space-y-1.5">
+          {categories.map(([key, label]) => (
+            <li key={key}>
+              <Link
+                href={`/category/${key}/`}
+                className="flex items-center gap-2 py-1 group"
+              >
+                <span
+                  className="w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: TOOL_CATEGORY_COLORS[key as keyof typeof TOOL_CATEGORY_COLORS] }}
+                />
+                <span className="text-xs text-[#c8cce0] group-hover:text-[#00ff88] transition-colors">
+                  {label}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       {/* Tool Ranking */}
       <div className="cyber-panel p-4">
         <h2 className="text-sm font-bold text-[#e0e4f0] mb-3 flex items-center gap-2">
@@ -46,7 +101,7 @@ export default function Sidebar() {
       {/* Affiliate Widget */}
       <div className="cyber-panel p-4">
         <h2 className="text-sm font-bold text-[#e0e4f0] mb-3 flex items-center gap-2">
-          <span className="w-1 h-4 bg-[#7c3aed] rounded-full" />
+          <span className="w-1 h-4 bg-[#f59e0b] rounded-full" />
           おすすめAIツール
         </h2>
         <ul className="space-y-2">
@@ -73,6 +128,28 @@ export default function Sidebar() {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* Tags Quick Access */}
+      <div className="cyber-panel p-4">
+        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3 flex items-center gap-2">
+          <span className="w-1 h-4 bg-[#ec4899] rounded-full" />
+          人気タグ
+        </h2>
+        <div className="flex flex-wrap gap-1.5">
+          {['ChatGPT', 'Claude', 'Midjourney', 'Cursor', 'AI 比較', 'レビュー', 'AI 使い方', '料金', '画像生成', 'コーディング'].map(tag => (
+            <Link
+              key={tag}
+              href={`/tag/${encodeURIComponent(tag)}/`}
+              className="text-[0.6rem] text-[#6a7090] bg-[#1a1a2e] px-2 py-1 rounded hover:text-[#00ff88] hover:bg-[#00ff8810] transition-colors"
+            >
+              #{tag}
+            </Link>
+          ))}
+        </div>
+        <Link href="/tags/" className="block text-[0.65rem] text-[#00ff88] mt-2 hover:underline">
+          タグ一覧を見る →
+        </Link>
       </div>
     </aside>
   );

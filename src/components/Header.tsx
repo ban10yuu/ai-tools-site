@@ -26,6 +26,12 @@ export default function Header() {
                 {label}
               </Link>
             ))}
+            <Link
+              href="/tags/"
+              className="px-3 py-1.5 text-xs font-medium text-[#6a7090] hover:text-[#00ff88] transition-colors rounded-md hover:bg-[#00ff8810]"
+            >
+              タグ
+            </Link>
           </nav>
         </div>
       </div>

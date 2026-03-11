@@ -105,3 +105,27 @@ export function searchArticles(query: string): Article[] {
       a.tags.some(t => t.toLowerCase().includes(q))
   );
 }
+
+// --- Tag functions for tag landing pages ---
+
+export function getAllTags(): string[] {
+  const tagSet = new Set<string>();
+  allArticles.forEach(a => a.tags.forEach(t => tagSet.add(t)));
+  return Array.from(tagSet).sort((a, b) => a.localeCompare(b, 'ja'));
+}
+
+export function getArticlesByTag(tag: string): Article[] {
+  return allArticles
+    .filter(a => a.tags.includes(tag))
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+}
+
+export function getTagsWithCount(): { tag: string; count: number }[] {
+  const tagMap = new Map<string, number>();
+  allArticles.forEach(a =>
+    a.tags.forEach(t => tagMap.set(t, (tagMap.get(t) || 0) + 1))
+  );
+  return Array.from(tagMap.entries())
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count);
+}

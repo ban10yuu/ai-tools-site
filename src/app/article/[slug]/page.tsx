@@ -1,12 +1,15 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getAllSlugs, getArticleBySlug, getRelatedArticles } from '@/lib/articles';
+import { getAllSlugs, getArticleBySlug, getRelatedArticles, getArticlesByTool } from '@/lib/articles';
 import { getToolBySlug } from '@/data/tools';
-import { ARTICLE_CATEGORY_LABELS, ARTICLE_CATEGORY_COLORS } from '@/lib/types';
+import { ARTICLE_CATEGORY_LABELS, ARTICLE_CATEGORY_COLORS, TOOL_CATEGORY_LABELS } from '@/lib/types';
 import ArticleCard from '@/components/ArticleCard';
 import AffiliateWidget from '@/components/AffiliateWidget';
 import Sidebar from '@/components/Sidebar';
+import { ArticleJsonLd, BreadcrumbJsonLd, FaqJsonLd, buildFaqFromSections } from '@/components/JsonLd';
+
+const BASE_URL = 'https://ai-tools-site-ten.vercel.app';
 
 export function generateStaticParams() {
   return getAllSlugs().map(slug => ({ slug }));
@@ -19,23 +22,37 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const article = getArticleBySlug(slug);
   if (!article) return {};
 
+  const tool = getToolBySlug(article.toolSlug);
+  const toolName = tool?.name || '';
+  const categoryLabel = tool ? TOOL_CATEGORY_LABELS[tool.category] : '';
+
+  const description = article.metaDescription
+    || `${toolName}の${ARTICLE_CATEGORY_LABELS[article.category]}。${article.excerpt}`;
+
   return {
     title: article.metaTitle || article.title,
-    description: article.metaDescription || article.excerpt,
-    keywords: article.tags,
+    description,
+    keywords: [
+      ...article.tags,
+      ...(toolName ? [`${toolName} レビュー`, `${toolName} 使い方`, `${toolName} 料金`] : []),
+      ...(categoryLabel ? [categoryLabel, `${categoryLabel} AI`] : []),
+      'AIツール',
+    ],
     openGraph: {
       title: article.metaTitle || article.title,
-      description: article.metaDescription || article.excerpt,
+      description,
       type: 'article',
       publishedTime: article.publishedAt,
+      section: categoryLabel,
+      tags: article.tags,
     },
     twitter: {
       card: 'summary_large_image',
       title: article.metaTitle || article.title,
-      description: article.metaDescription || article.excerpt,
+      description,
     },
     alternates: {
-      canonical: `https://ai-tools-lab.vercel.app/article/${slug}/`,
+      canonical: `${BASE_URL}/article/${slug}/`,
     },
   };
 }
@@ -48,28 +65,29 @@ export default async function ArticlePage({ params }: PageProps) {
   const tool = getToolBySlug(article.toolSlug);
   const relatedArticles = getRelatedArticles(article, 4);
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: article.title,
-    description: article.excerpt,
-    datePublished: article.publishedAt,
-    author: {
-      '@type': 'Organization',
-      name: 'AI Tools Lab',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'AI Tools Lab',
-    },
-  };
+  // Recommended articles from same tool (different from related)
+  const sameToolArticles = getArticlesByTool(article.toolSlug)
+    .filter(a => a.slug !== article.slug && !relatedArticles.some(r => r.slug === a.slug))
+    .slice(0, 2);
+
+  // Build breadcrumbs
+  const breadcrumbItems = [
+    { name: 'TOP', url: `${BASE_URL}/` },
+    ...(tool ? [
+      { name: TOOL_CATEGORY_LABELS[tool.category], url: `${BASE_URL}/category/${tool.category}/` },
+      { name: tool.name, url: `${BASE_URL}/tool/${tool.slug}/` },
+    ] : []),
+    { name: article.title, url: `${BASE_URL}/article/${article.slug}/` },
+  ];
+
+  // Build FAQ from sections
+  const faqItems = buildFaqFromSections(article.sections);
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <ArticleJsonLd article={article} toolName={tool?.name} />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
+      {faqItems.length > 0 && <FaqJsonLd questions={faqItems} />}
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
@@ -80,6 +98,10 @@ export default async function ArticlePage({ params }: PageProps) {
               <span>/</span>
               {tool && (
                 <>
+                  <Link href={`/category/${tool.category}/`} className="hover:text-[#00ff88] transition-colors">
+                    {TOOL_CATEGORY_LABELS[tool.category]}
+                  </Link>
+                  <span>/</span>
                   <Link href={`/tool/${tool.slug}/`} className="hover:text-[#00ff88] transition-colors">
                     {tool.name}
                   </Link>
@@ -111,12 +133,16 @@ export default async function ArticlePage({ params }: PageProps) {
                 {article.excerpt}
               </p>
 
-              {/* Tags */}
+              {/* Tags - now clickable links */}
               <div className="flex flex-wrap gap-1.5 mt-4">
                 {article.tags.map(tag => (
-                  <span key={tag} className="text-[0.65rem] text-[#4a5070] bg-[#1a1a2e] px-2 py-0.5 rounded">
+                  <Link
+                    key={tag}
+                    href={`/tag/${encodeURIComponent(tag)}/`}
+                    className="text-[0.65rem] text-[#4a5070] bg-[#1a1a2e] px-2 py-0.5 rounded hover:text-[#00ff88] hover:bg-[#00ff8810] transition-colors"
+                  >
                     #{tag}
-                  </span>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -173,6 +199,51 @@ export default async function ArticlePage({ params }: PageProps) {
                   {relatedArticles.map(a => (
                     <ArticleCard key={a.slug} article={a} />
                   ))}
+                </div>
+              </div>
+            )}
+
+            {/* Recommended (same tool, not in related) */}
+            {sameToolArticles.length > 0 && (
+              <div className="mt-8">
+                <h2 className="text-lg font-bold text-[#e0e4f0] mb-4 flex items-center gap-2">
+                  <span className="w-1 h-5 bg-[#7c3aed] rounded-full" />
+                  {tool?.name}のその他の記事
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {sameToolArticles.map(a => (
+                    <ArticleCard key={a.slug} article={a} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Category Navigation */}
+            {tool && (
+              <div className="mt-8 cyber-panel p-4">
+                <h3 className="text-sm font-bold text-[#c8cce0] mb-3 flex items-center gap-2">
+                  <span className="w-1 h-4 bg-[#00d4ff] rounded-full" />
+                  カテゴリから探す
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  <Link
+                    href={`/category/${tool.category}/`}
+                    className="text-xs text-[#00ff88] bg-[#00ff8810] px-3 py-1.5 rounded-full border border-[#00ff8830] hover:bg-[#00ff8820] transition-colors"
+                  >
+                    {TOOL_CATEGORY_LABELS[tool.category]}の記事をもっと見る
+                  </Link>
+                  <Link
+                    href={`/tool/${tool.slug}/`}
+                    className="text-xs text-[#7c3aed] bg-[#7c3aed10] px-3 py-1.5 rounded-full border border-[#7c3aed30] hover:bg-[#7c3aed20] transition-colors"
+                  >
+                    {tool.name}の全記事を見る
+                  </Link>
+                  <Link
+                    href="/tags/"
+                    className="text-xs text-[#8890a8] bg-[#1a1a2e] px-3 py-1.5 rounded-full border border-[#252540] hover:text-[#00ff88] transition-colors"
+                  >
+                    タグ一覧
+                  </Link>
                 </div>
               </div>
             )}

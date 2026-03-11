@@ -7,6 +7,9 @@ import { toolAffiliates } from '@/data/affiliates';
 import { TOOL_CATEGORY_LABELS } from '@/lib/types';
 import ArticleCard from '@/components/ArticleCard';
 import Sidebar from '@/components/Sidebar';
+import { ToolPageJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
+
+const BASE_URL = 'https://ai-tools-site-ten.vercel.app';
 
 export function generateStaticParams() {
   return tools.map(t => ({ slug: t.slug }));
@@ -19,15 +22,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const tool = getToolBySlug(slug);
   if (!tool) return {};
 
+  const categoryLabel = TOOL_CATEGORY_LABELS[tool.category];
+
   return {
-    title: `${tool.name}のレビュー・使い方・比較`,
-    description: tool.description,
+    title: `${tool.name}のレビュー・使い方・料金比較【2026年最新】`,
+    description: `${tool.name}（${tool.company}）を徹底レビュー。${categoryLabel}カテゴリのAIツール。${tool.description} 料金: ${tool.pricing}`,
+    keywords: [
+      tool.name,
+      `${tool.name} レビュー`,
+      `${tool.name} 使い方`,
+      `${tool.name} 料金`,
+      `${tool.name} 評判`,
+      `${tool.name} 比較`,
+      categoryLabel,
+      `${categoryLabel} AI`,
+      'AIツール',
+    ],
     openGraph: {
       title: `${tool.name}のレビュー・使い方・比較｜AI Tools Lab`,
       description: tool.description,
     },
     alternates: {
-      canonical: `https://ai-tools-lab.vercel.app/tool/${slug}/`,
+      canonical: `${BASE_URL}/tool/${slug}/`,
     },
   };
 }
@@ -40,33 +56,16 @@ export default async function ToolPage({ params }: PageProps) {
   const articles = getArticlesByTool(slug);
   const affiliates = toolAffiliates[slug] || [];
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: tool.name,
-    description: tool.description,
-    applicationCategory: 'AI Tool',
-    operatingSystem: 'Web',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: tool.rating,
-      bestRating: 5,
-      worstRating: 1,
-      ratingCount: Math.floor(tool.rating * 100),
-    },
-  };
+  const breadcrumbItems = [
+    { name: 'TOP', url: `${BASE_URL}/` },
+    { name: TOOL_CATEGORY_LABELS[tool.category], url: `${BASE_URL}/category/${tool.category}/` },
+    { name: tool.name, url: `${BASE_URL}/tool/${tool.slug}/` },
+  ];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <ToolPageJsonLd tool={tool} articleCount={articles.length} />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
@@ -100,8 +99,9 @@ export default async function ToolPage({ params }: PageProps) {
                   </h1>
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-xs text-[#6a7090]">{tool.company}</span>
-                    <span
-                      className="text-[0.65rem] px-2 py-0.5 rounded-full font-semibold"
+                    <Link
+                      href={`/category/${tool.category}/`}
+                      className="text-[0.65rem] px-2 py-0.5 rounded-full font-semibold hover:opacity-80 transition-opacity"
                       style={{
                         backgroundColor: tool.accentColor + '15',
                         color: tool.accentColor,
@@ -109,7 +109,7 @@ export default async function ToolPage({ params }: PageProps) {
                       }}
                     >
                       {TOOL_CATEGORY_LABELS[tool.category]}
-                    </span>
+                    </Link>
                   </div>
                   <div className="flex items-center gap-1 mb-2">
                     {[1, 2, 3, 4, 5].map(star => (
