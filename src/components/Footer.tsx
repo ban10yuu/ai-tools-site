@@ -86,6 +86,11 @@ export default function Footer() {
           <p className="text-xs text-[#4a5070]">
             &copy; 2026 AI Tools Lab. All rights reserved.
           </p>
+          <div className="flex items-center gap-3 text-xs">
+            <Link href="/privacy/" className="text-[#6a7090] hover:text-[#00ff88] transition-colors">プライバシーポリシー</Link>
+            <span className="text-[#252540]">|</span>
+            <Link href="/contact/" className="text-[#6a7090] hover:text-[#00ff88] transition-colors">お問い合わせ</Link>
+          </div>
           <p className="text-xs text-[#4a5070]">
             ※ 当サイトはアフィリエイトプログラムに参加しています
           </p>

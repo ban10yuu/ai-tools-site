@@ -26,6 +26,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.5,
     },
+    {
+      url: `${BASE_URL}/privacy/`,
+      lastModified: '2026-03-11',
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/contact/`,
+      lastModified: '2026-03-11',
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ];
 
   const toolPages: MetadataRoute.Sitemap = tools.map(t => ({
