@@ -22,37 +22,8 @@ body {
   background-color: #0a0a14;
   color: #b0b8d0;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-  position: relative;
 }
 
-/* Grid pattern overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* Scanline texture */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.05) 2px,
-    rgba(0, 0, 0, 0.05) 4px
-  );
-}
 
 /* Cyber panel card */
 .cyber-panel {
@@ -63,38 +34,10 @@ body::after {
   position: relative;
   overflow: hidden;
 }
-.cyber-panel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #00ff88, transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
 .cyber-panel:hover {
   border-color: #00ff8840;
-  box-shadow: 0 0 30px rgba(0, 255, 136, 0.08), 0 4px 20px rgba(0, 0, 0, 0.4);
-  transform: translateY(-2px);
-}
-.cyber-panel:hover::before {
-  opacity: 1;
 }
 
-/* Neon glow accent */
-.neon-glow {
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5), 0 0 20px rgba(0, 255, 136, 0.3);
-}
-
-.neon-glow-purple {
-  text-shadow: 0 0 10px rgba(124, 58, 237, 0.5), 0 0 20px rgba(124, 58, 237, 0.3);
-}
-
-.neon-glow-cyan {
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5), 0 0 20px rgba(0, 212, 255, 0.3);
-}
 
 /* Accent border */
 .accent-border-left {
@@ -140,7 +83,7 @@ body::after {
   background: #1a1a2e;
   border: 1px solid #252540;
   border-left: 3px solid #00d4ff;
-  border-radius: 2px 8px 8px 2px;
+  border-radius: 4px;
   padding: 1.25rem 1.5rem 1.25rem 1.75rem;
   margin: 1.5rem 0;
   font-size: 0.9375rem;
@@ -188,32 +131,11 @@ body::after {
   border-radius: 4px;
   flex-shrink: 0;
 }
-.rank-1 { background: linear-gradient(135deg, #00ff88, #00cc6a); color: #0a0a14; }
-.rank-2 { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: #fff; }
-.rank-3 { background: linear-gradient(135deg, #00d4ff, #0099cc); color: #0a0a14; }
+.rank-1 { background: #00cc6a; color: #0a0a14; }
+.rank-2 { background: #7c3aed; color: #fff; }
+.rank-3 { background: #00b8d4; color: #0a0a14; }
 .rank-other { background: #252540; color: #6a7090; }
 
-/* Glitch text animation */
-@keyframes glitch {
-  0%, 100% { text-shadow: 0 0 10px rgba(0, 255, 136, 0.5); }
-  25% { text-shadow: -2px 0 #ff6b9d, 2px 0 #00d4ff; }
-  50% { text-shadow: 0 0 20px rgba(0, 255, 136, 0.8); }
-  75% { text-shadow: 2px 0 #ff6b9d, -2px 0 #00d4ff; }
-}
-
-.glitch-text {
-  animation: glitch 3s infinite;
-}
-
-/* Hero gradient */
-.hero-gradient {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 136, 0.1) 0%,
-    rgba(124, 58, 237, 0.1) 50%,
-    rgba(0, 212, 255, 0.1) 100%
-  );
-}
 
 /* Category pill */
 .category-pill {

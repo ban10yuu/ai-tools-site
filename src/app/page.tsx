@@ -13,10 +13,10 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="hero-gradient border-b border-[#252540]">
+      <section className="bg-[#0c0c14] border-b border-[#252540]">
         <div className="max-w-7xl mx-auto px-4 py-16 text-center">
           <h1 className="text-3xl md:text-5xl font-black mb-4">
-            <span className="text-[#00ff88] glitch-text">最新AIツール</span>
+            <span className="text-[#00ff88]">最新AIツール</span>
             <span className="text-white">徹底レビュー・比較</span>
             <span className="text-[#7c3aed]">2026</span>
           </h1>
@@ -32,33 +32,13 @@ export default function Home() {
               <Link
                 key={key}
                 href={`/category/${key}/`}
-                className="px-4 py-1.5 rounded-full text-xs font-semibold transition-all hover:scale-105"
-                style={{
-                  backgroundColor: TOOL_CATEGORY_COLORS[key as keyof typeof TOOL_CATEGORY_COLORS] + '15',
-                  color: TOOL_CATEGORY_COLORS[key as keyof typeof TOOL_CATEGORY_COLORS],
-                  border: `1px solid ${TOOL_CATEGORY_COLORS[key as keyof typeof TOOL_CATEGORY_COLORS]}30`,
-                }}
+                className="px-4 py-1.5 rounded-full text-xs font-semibold transition-colors bg-[#1a1a2e] border border-[#252540] text-[#c8cce0] hover:text-[#00ff88] hover:border-[#00ff8840]"
               >
                 {label}
               </Link>
             ))}
           </div>
 
-          {/* Stats */}
-          <div className="flex justify-center gap-8 text-center">
-            <div>
-              <div className="text-2xl font-black text-[#00ff88]">{tools.length}</div>
-              <div className="text-xs text-[#6a7090]">AIツール</div>
-            </div>
-            <div>
-              <div className="text-2xl font-black text-[#7c3aed]">{articles.length}</div>
-              <div className="text-xs text-[#6a7090]">レビュー記事</div>
-            </div>
-            <div>
-              <div className="text-2xl font-black text-[#00d4ff]">6</div>
-              <div className="text-xs text-[#6a7090]">カテゴリ</div>
-            </div>
-          </div>
         </div>
       </section>
 

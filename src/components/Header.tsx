@@ -5,14 +5,14 @@ export default function Header() {
   const categories = Object.entries(TOOL_CATEGORY_LABELS);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0a0a14]/90 backdrop-blur-md border-b border-[#252540]">
+    <header className="sticky top-0 z-50 bg-[#0a0a12] border-b border-[#252540]">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-14">
           <Link href="/" className="flex items-center gap-2 group">
             <span className="text-xl font-black tracking-tight">
-              <span className="text-[#00ff88] neon-glow">AI</span>
+              <span className="text-[#00ff88]">AI</span>
               <span className="text-white"> Tools </span>
-              <span className="text-[#7c3aed] neon-glow-purple">Lab</span>
+              <span className="text-[#7c3aed]">Lab</span>
             </span>
           </Link>
 

@@ -13,8 +13,7 @@ export default function Sidebar() {
     <aside className="space-y-6">
       {/* Popular Articles */}
       <div className="cyber-panel p-4">
-        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3 flex items-center gap-2">
-          <span className="w-1 h-4 bg-[#00d4ff] rounded-full" />
+        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3">
           人気記事ランキング
         </h2>
         <ul className="space-y-2">
@@ -38,8 +37,7 @@ export default function Sidebar() {
 
       {/* Category Links */}
       <div className="cyber-panel p-4">
-        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3 flex items-center gap-2">
-          <span className="w-1 h-4 bg-[#7c3aed] rounded-full" />
+        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3">
           カテゴリ
         </h2>
         <ul className="space-y-1.5">
@@ -64,8 +62,7 @@ export default function Sidebar() {
 
       {/* Tool Ranking */}
       <div className="cyber-panel p-4">
-        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3 flex items-center gap-2">
-          <span className="w-1 h-4 bg-[#00ff88] rounded-full" />
+        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3">
           AIツールランキング
         </h2>
         <ul className="space-y-2">
@@ -100,8 +97,7 @@ export default function Sidebar() {
 
       {/* Affiliate Widget */}
       <div className="cyber-panel p-4">
-        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3 flex items-center gap-2">
-          <span className="w-1 h-4 bg-[#f59e0b] rounded-full" />
+        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3">
           おすすめAIツール
         </h2>
         <ul className="space-y-2">
@@ -118,7 +114,7 @@ export default function Sidebar() {
                     {aff.label}
                   </span>
                   {aff.badge && (
-                    <span className="ml-1.5 text-[0.6rem] text-[#00ff88] bg-[#00ff8815] px-1.5 py-0.5 rounded-full">
+                    <span className="ml-1.5 text-[0.6rem] text-[#00ff88] bg-[#00ff8815] px-1.5 py-0.5 rounded">
                       {aff.badge}
                     </span>
                   )}
@@ -132,8 +128,7 @@ export default function Sidebar() {
 
       {/* Tags Quick Access */}
       <div className="cyber-panel p-4">
-        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3 flex items-center gap-2">
-          <span className="w-1 h-4 bg-[#ec4899] rounded-full" />
+        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3">
           人気タグ
         </h2>
         <div className="flex flex-wrap gap-1.5">
