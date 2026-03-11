@@ -117,5 +117,38 @@ export const articles: Article[] = [
     "toolSlug": "gemini",
     "metaTitle": "Gemini vs Perplexity｜AI Tools Lab",
     "metaDescription": "AI検索の二強、GeminiとPerplexityを徹底比較。検索精度、ソース品質、回答速度、料金プランを詳しく検証します。"
+  },
+  {
+    "slug": "gemini-workspace-integration-guide",
+    "title": "Gemini × Google Workspace完全連携ガイド：Gmail・Docs・Sheetsを AI で自動化",
+    "toolSlug": "gemini",
+    "category": "usecase",
+    "excerpt": "GeminiとGoogle Workspaceの連携方法を徹底解説。Gmail、Googleドキュメント、スプレッドシートでのAI活用術を実践的に紹介します。",
+    "sections": [
+      {
+        "heading": "Gemini × Workspace連携の全体像",
+        "content": "GoogleのAI「Gemini」は、Google Workspaceとの深い統合が最大の差別化ポイントです。Gmail、Googleドキュメント、スプレッドシート、スライド、Meetなど、日常的に使うGoogleサービスのすべてにAI機能が組み込まれています。\n\n<div class=\"summary-box\">Gemini for Workspace対応サービス：Gmail、ドキュメント、スプレッドシート、スライド、Meet、Chat、Drive</div>\n\n2026年現在、Gemini AdvancedプランまたはWorkspace向けのGemini for Google Workspaceアドオンを契約すると、すべてのGoogleサービスでAI機能が利用可能になります。\n\n他のAIチャットボット（ChatGPTやClaude）は外部ツールとして使う必要がありますが、Geminiは作業している場所に直接AIが存在するため、コピー＆ペーストの手間がなく、シームレスな体験を提供します。\n\nこの記事では、主要なGoogleサービスでの具体的な活用方法を解説していきます。"
+      },
+      {
+        "heading": "Gmail × Gemini：メール業務を劇的に効率化",
+        "content": "GmailでのGemini活用は、ビジネスパーソンにとって最も身近で効果的な使い方です。\n\n<marker>メールの自動要約</marker>\n長いメールスレッドの上部に「要約」ボタンが表示され、クリックするだけでスレッド全体の要約を生成します。10通以上の往復メールでも、論点と決定事項を瞬時に把握できます。\n\n<marker>返信文の自動生成</marker>\n受信メールに対して「丁寧に断る」「日程を提案する」「詳細を質問する」といったトーンを選ぶだけで、適切な返信文を生成します。日本語のビジネスメールの敬語も自然です。\n\n<marker>メール作成の支援</marker>\n「新しいプロジェクトの提案メールを書いて」と指示すると、箇条書きのメモから完成度の高いビジネスメールを生成します。宛先や目的に応じてトーンを調整できます。\n\n<div class=\"highlight-box\">実践Tips：「Help me write」機能を使う際は、送信相手の役職や関係性も伝えると、より適切な敬語レベルのメールが生成されます。</div>\n\nメール処理にかかる時間が平均40%削減されたという調査結果もあり、1日に数十通のメールを処理するビジネスパーソンにとっては大きな時間節約になります。"
+      },
+      {
+        "heading": "Googleドキュメント・スライド × Gemini",
+        "content": "Googleドキュメントでは、文書作成の全プロセスでGeminiが支援します。\n\n**文書の下書き生成**：空白のドキュメントで「Help me write」をクリックし、トピックと用途を指定するだけで、構造化された文書の下書きが生成されます。企画書、レポート、マニュアルなど様々な文書タイプに対応。\n\n**文章の改善**：既存の文章を選択して「もっとフォーマルに」「簡潔にして」「箇条書きに変換」といった指示で、瞬時に文章を改善します。\n\n**要約と翻訳**：長文ドキュメントの要約や、多言語間の翻訳もドキュメント内で完結します。\n\nGoogleスライドでは、Geminiがプレゼンテーション作成を強力に支援します。\n\n<div class=\"note-box\">スライドでの活用：テキストを入力するだけでスライドのレイアウトとデザインを自動提案。画像生成機能を使ってスライドに合ったビジュアルも作成できます。</div>\n\n特に便利なのは「Speaker notes（発表者ノート）」の自動生成です。スライドの内容から、各スライドで話すべきポイントを自動的に生成してくれます。プレゼンの準備時間が大幅に短縮されます。"
+      },
+      {
+        "heading": "スプレッドシート × Gemini：データ分析の民主化",
+        "content": "Googleスプレッドシートでのgemini活用は、データ分析のスキルギャップを埋める革新的な機能です。\n\n<marker>自然言語でデータ分析</marker>\n「先月と今月の売上を比較するグラフを作って」と入力するだけで、適切なグラフが自動生成されます。関数やピボットテーブルの知識がなくても、高度な分析が可能になりました。\n\n<marker>関数の自動生成</marker>\n「この列の値を条件分岐で色分けしたい」と伝えると、適切な条件付き書式ルールや関数を提案・適用します。VLOOKUP、IF文、ARRAYFORMULA等の複雑な関数も自然言語で生成できます。\n\n<marker>データクリーニング</marker>\n「重複を削除して」「日付形式を統一して」「空欄を0で埋めて」といった指示で、データのクリーニング作業を自動化します。\n\n<blockquote>スプレッドシートでのGemini活用は、Excel/Sheets初心者にとって特に革命的です。関数を覚える代わりに、やりたいことを日本語で伝えるだけで済みます。</blockquote>\n\n大規模なデータセットに対しても、Geminiがパターンや異常値を検出し、インサイトを提案してくれます。データドリブンな意思決定を組織全体で実現するための強力なツールです。"
+      },
+      {
+        "heading": "まとめ：Gemini Workspace連携のベストプラクティス",
+        "content": "GeminiとGoogle Workspaceの連携は、Googleエコシステムを活用するビジネスパーソンにとって最も効率的なAI導入方法です。\n\n<div class=\"summary-box\">導入の優先順位：Gmail（即効性が高い）→ ドキュメント（文書作成効率化）→ スプレッドシート（データ活用）→ スライド（プレゼン支援）</div>\n\n**効果的な活用のポイント：**\n・まずGmailのメール要約・返信生成から始める（最も日常的）\n・ドキュメント作成では「下書き生成→人間が編集」のフローを確立\n・スプレッドシートでは定型的な分析作業をAIに任せる\n・チーム全体に活用方法を共有し、組織的に生産性を向上\n\n**注意点：**\n・機密データの取り扱いポリシーを事前に確認\n・AI生成コンテンツのファクトチェックは必ず実施\n・Workspace管理者はAI機能の利用範囲を適切に設定\n\nGeminiの強みは「作業場所にAIがいる」ことです。わざわざ別のツールを開く必要がないため、業務フローを変えずにAIの恩恵を受けられます。Google Workspaceを日常的に使っている組織にとって、Gemini導入は最もROIの高いAI投資です。"
+      }
+    ],
+    "tags": ["Gemini", "Google Workspace", "Gmail", "業務効率化", "自動化", "スプレッドシート"],
+    "publishedAt": "2026-03-13",
+    "metaTitle": "Gemini × Google Workspace完全連携ガイド2026｜Gmail・Docs・Sheets AI活用術",
+    "metaDescription": "GeminiとGoogle Workspaceの連携を徹底解説。Gmail自動要約、ドキュメント作成支援、スプレッドシート分析の実践的な活用法。"
   }
 ];

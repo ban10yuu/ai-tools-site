@@ -3,6 +3,7 @@ import { tools } from '@/data/tools';
 import { generalAffiliates } from '@/data/affiliates';
 import { getPopularArticles } from '@/lib/articles';
 import { TOOL_CATEGORY_LABELS, TOOL_CATEGORY_COLORS } from '@/lib/types';
+import GoogleAd from './GoogleAd';
 
 export default function Sidebar() {
   const topTools = tools.slice(0, 10);
@@ -124,6 +125,12 @@ export default function Sidebar() {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* Ad placement */}
+      <div className="cyber-panel p-4">
+        <p className="text-[0.6rem] text-[#4a5070] mb-1 text-center">ADVERTISEMENT</p>
+        <GoogleAd format="rectangle" />
       </div>
 
       {/* Tags Quick Access */}

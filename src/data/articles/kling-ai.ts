@@ -114,5 +114,38 @@ export const articles: Article[] = [
     ],
     "metaTitle": "Kling AI vs Runway ML｜AI Tools Lab",
     "metaDescription": "Kling AIとRunway MLを品質・速度・料金・機能で徹底比較。AI動画生成ツール選びの決定版ガイド。"
+  },
+  {
+    "slug": "kling-ai-image-to-video-techniques",
+    "title": "Kling AI Image-to-Videoマスターガイド：静止画から高品質動画を生成する技術",
+    "toolSlug": "kling-ai",
+    "category": "tips",
+    "excerpt": "Kling AIのImage-to-Video機能を使いこなすテクニックを解説。静止画から自然な動きの動画を生成するプロンプト設計と品質最適化を紹介。",
+    "sections": [
+      {
+        "heading": "Kling AI Image-to-Videoの仕組みと強み",
+        "content": "Kling AIのImage-to-Video機能は、1枚の静止画から自然な動きのある動画を生成する技術です。Kuaishou社が開発したこの技術は、特に人物のリアルな動き再現において業界をリードしています。\n\n<div class=\"summary-box\">Kling AI I2Vの強み：リアルな人物描写、リップシンク対応、最大2分の長尺生成、手頃な料金</div>\n\n他のAI動画生成ツールと比較した場合、Kling AIは以下の点で優れています：\n・人物の表情や動きの自然さ\n・入力画像の特徴を忠実に保持する能力\n・最大2分という比較的長い動画の生成\n・$5.99/月からという手頃な料金設定\n\n2026年の最新バージョンでは、1080p解像度、60fpsの動画生成に対応し、品質面でもRunway MLに匹敵するレベルに達しています。\n\n特にSNS向けのショート動画コンテンツ制作において、Kling AIのコストパフォーマンスは非常に高いです。"
+      },
+      {
+        "heading": "効果的な入力画像の選び方と準備",
+        "content": "Image-to-Videoの品質は、入力画像の品質に大きく依存します。最適な結果を得るための画像選定のポイントを紹介します。\n\n<marker>解像度</marker>\n最低720p以上、推奨は1080p以上の画像を使用します。低解像度の画像を入力すると、動画の品質も低下します。\n\n<marker>構図</marker>\n被写体がフレームの中心付近にあり、適度な余白がある構図が最適です。被写体が端に寄りすぎていると、動きの表現が制限されます。\n\n<marker>照明</marker>\n均一で自然な照明の画像が最良の結果を生みます。極端な逆光や影の強い画像は、動画化した際に不自然になることがあります。\n\n<div class=\"highlight-box\">人物画像のコツ：正面または斜め45度のアングル、目が開いている状態、自然な表情の画像を選ぶと、動きの生成が最も自然になります。</div>\n\n<marker>背景</marker>\nシンプルな背景の方が、AIが被写体と背景を正しく識別でき、自然な動きを生成しやすくなります。複雑な背景の場合は、被写体と背景の動きが不一致になるリスクがあります。\n\nMidjourneyやDALL-E 3で生成した高品質な画像をKling AIに入力する「AI画像→AI動画」パイプラインも効果的です。"
+      },
+      {
+        "heading": "モーションプロンプトの設計テクニック",
+        "content": "Kling AIに動きを指示するモーションプロンプトの書き方を解説します。\n\n**基本構造**：「被写体のアクション + カメラの動き + 雰囲気」で構成します。例：「The woman slowly turns her head and smiles, camera slowly zooms in, warm soft lighting」\n\n**人物の動き指定**：\n・walking：歩行\n・turning head：頭を回す\n・hair blowing in wind：風で髪がなびく\n・speaking/talking：口を動かす（リップシンク）\n・dancing：ダンス\n\n**カメラワーク指定**：\n・zoom in/out：ズームイン/アウト\n・pan left/right：パン（横移動）\n・tilt up/down：ティルト（上下移動）\n・dolly shot：ドリー（前後移動）\n\n<div class=\"note-box\">動きは控えめに指定するのがコツです。「dramatic movement」よりも「gentle, subtle movement」の方が自然な結果が得られることが多いです。</div>\n\nKling AIのモーション転送機能を使えば、参照動画の動きを入力画像に適用することも可能です。ダンスの振り付けや特定のジェスチャーを再現する際に非常に便利です。"
+      },
+      {
+        "heading": "商用コンテンツ制作の実践例",
+        "content": "Kling AI Image-to-Videoを商用コンテンツ制作に活用する具体例を紹介します。\n\n<marker>ECサイトの商品動画</marker>\n商品写真からアニメーション動画を生成します。「The product slowly rotates on a white background, soft shadows」で商品の回転動画が作成でき、ECサイトの商品ページやSNS広告に活用できます。\n\n<marker>SNS広告のモーショングラフィックス</marker>\n静止画のバナーデザインに微妙な動きを追加して、スクロールを止めるインパクトのある広告を作成します。\n\n<marker>ストーリー性のあるショートムービー</marker>\n複数の静止画から動画クリップを生成し、編集ソフトで結合してストーリーのあるショートムービーを制作します。\n\n<marker>ファッション・美容コンテンツ</marker>\nモデルの写真からヘアスタイルがなびく動画や、メイクのビフォーアフター動画を生成します。\n\n<blockquote>Kling AIの料金はPro版で$5.99/月と非常に手頃です。Runway MLの$28/月と比較すると、コスト面で大きな優位性があります。品質との兼ね合いを考慮して使い分けましょう。</blockquote>"
+      },
+      {
+        "heading": "まとめ：Image-to-Videoで動画制作のハードルを下げる",
+        "content": "Kling AIのImage-to-Video機能は、静止画しかない状態から動画コンテンツを生成できる革新的なツールです。\n\n<div class=\"summary-box\">Kling AI I2V活用のポイント：高品質な入力画像 × 適切なモーションプロンプト × 後処理での仕上げ</div>\n\n**Kling AIが特に強い場面：**\n・人物の自然な動きの生成\n・リップシンク動画\n・コスパ重視の大量動画制作\n・SNSショート動画の素材作成\n\n**Runway MLとの使い分け：**\n・人物の動き→Kling AI\n・風景・抽象的な映像→Runway ML\n・テキストからの動画生成→Runway ML\n・コスト重視→Kling AI\n\n**今後の展望：**\nAI動画生成技術は急速に進化しており、Kling AIも定期的に大幅なアップデートを行っています。解像度、長さ、品質の全てが向上し続けているため、現時点の制約は近い将来に解消される可能性が高いです。今からノウハウを蓄積しておきましょう。"
+      }
+    ],
+    "tags": ["Kling AI", "Image-to-Video", "AI動画", "動画生成", "モーション", "商用利用"],
+    "publishedAt": "2026-03-27",
+    "metaTitle": "Kling AI Image-to-Videoマスターガイド2026｜静止画から高品質動画を生成",
+    "metaDescription": "Kling AIのImage-to-Video機能を使いこなすテクニック。入力画像の準備、モーションプロンプト、商用活用の実践例を解説。"
   }
 ];

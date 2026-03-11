@@ -6,6 +6,7 @@ import { getToolBySlug } from '@/data/tools';
 import { ARTICLE_CATEGORY_LABELS, ARTICLE_CATEGORY_COLORS, TOOL_CATEGORY_LABELS } from '@/lib/types';
 import ArticleCard from '@/components/ArticleCard';
 import AffiliateWidget from '@/components/AffiliateWidget';
+import AdBanner from '@/components/AdBanner';
 import Sidebar from '@/components/Sidebar';
 import { ArticleJsonLd, BreadcrumbJsonLd, FaqJsonLd, buildFaqFromSections } from '@/components/JsonLd';
 
@@ -168,6 +169,9 @@ export default async function ArticlePage({ params }: PageProps) {
               </ol>
             </div>
 
+            {/* Ad after TOC */}
+            <AdBanner />
+
             {/* Content */}
             <div className="article-content">
               {article.sections.map((section, i) => (
@@ -181,6 +185,7 @@ export default async function ArticlePage({ params }: PageProps) {
                     }} />
                   ))}
                   {i === 1 && <AffiliateWidget toolSlug={article.toolSlug} />}
+                  {i === 2 && <AdBanner />}
                 </section>
               ))}
             </div>

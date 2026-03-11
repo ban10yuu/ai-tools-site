@@ -114,5 +114,38 @@ export const articles: Article[] = [
     ],
     "metaTitle": "Adobe Firefly商用利用ガイド｜AI Tools Lab",
     "metaDescription": "Adobe Fireflyの商用利用における法的安全性を詳しく解説。他のAI画像生成ツールとの著作権リスク比較も。"
+  },
+  {
+    "slug": "adobe-firefly-photoshop-integration",
+    "title": "Adobe Firefly × Photoshop完全連携ガイド：Generative Fillで写真編集を革新",
+    "toolSlug": "adobe-firefly",
+    "category": "tips",
+    "excerpt": "Adobe FireflyとPhotoshopの連携機能を徹底解説。Generative Fill、Generative Expand、Text Effectsの実践的な使い方を紹介します。",
+    "sections": [
+      {
+        "heading": "Adobe Firefly × Photoshop統合の全体像",
+        "content": "Adobe FireflyはPhotoshop 2024以降に深く統合されており、選択範囲への画像生成（Generative Fill）、画像の拡張（Generative Expand）、テキスト効果の生成など、従来のPhotoshopワークフローを根本的に変革する機能を提供しています。\n\n<div class=\"summary-box\">Firefly × Photoshopの主要機能：Generative Fill（塗りつぶし生成）、Generative Expand（拡張生成）、Generate Similar（類似生成）、Text Effects</div>\n\nこれらの機能は全てPhotoshopのUI内から直接利用でき、レイヤーベースの非破壊編集として適用されます。つまり、AI生成の結果に満足できなければ、元の画像を損なうことなくやり直しが可能です。\n\nAdobe CCサブスクリプション（月額2,728円〜）に含まれるGenerative Creditsで利用でき、追加の費用は不要です。商用利用も安全で、Adobe Stockの学習データに基づいているため著作権リスクが極めて低いのが大きな差別化ポイントです。\n\nPhotoshop以外にも、Illustrator、InDesign、Express、Premiereなど、Adobe Creative Cloudの主要アプリにFireflyの機能が順次統合されています。"
+      },
+      {
+        "heading": "Generative Fillの実践テクニック",
+        "content": "Generative Fill（塗りつぶし生成）は、選択範囲に対してテキストプロンプトで画像を生成・置換する機能です。\n\n<marker>オブジェクトの追加</marker>\n画像の空きスペースを選択し、「赤いバラの花束」と入力すると、光源や影を自然に合わせたオブジェクトが生成されます。合成の自然さはPhotoshopの色調補正技術により極めて高品質です。\n\n<marker>不要物の除去</marker>\n消したい対象を選択し、プロンプトを空のまま実行すると、背景に馴染む形で対象が自然に消去されます。従来のContent-Aware Fillより遥かに高精度です。\n\n<marker>衣装・背景の変更</marker>\n人物の衣服を選択して「ビジネススーツ」と入力すると、衣装を自然に変更できます。ファッション業界やEC商品撮影で革新的な効率化を実現しています。\n\n<div class=\"highlight-box\">品質のコツ：選択範囲を少し大きめに取ると、生成物と既存画像の境界が自然になります。また、3つのバリエーションが同時に生成されるので、最適なものを選びましょう。</div>\n\nGenerative Fillはレイヤーとして追加されるため、不透明度の調整やマスクの微調整で、生成結果をさらに磨き込むことができます。"
+      },
+      {
+        "heading": "Generative Expandと高度な編集テクニック",
+        "content": "Generative Expand（拡張生成）は、画像のキャンバスを拡大し、存在しない領域をAIが自然に生成する機能です。\n\n**アスペクト比の変更**：縦長の写真を横長にしたい場合、キャンバスを横に広げるだけで、左右に自然な背景が生成されます。SNSプラットフォームごとに異なるアスペクト比に対応する際に非常に便利です。\n\n**構図の改善**：被写体が端に寄りすぎた写真を、キャンバスを拡張することで余白を追加し、構図を改善できます。\n\n**パノラマ風の拡張**：風景写真の左右を拡張すると、パノラマのような広がりのある画像が得られます。\n\n<div class=\"note-box\">Generative Expandの制限：極端に大きな拡張（元の画像の4倍以上等）は品質が低下する場合があります。段階的に拡張していくのが品質維持のコツです。</div>\n\n**Reference Image機能**も注目です。参照画像のスタイル（構図、色調、雰囲気）を指定することで、生成結果のスタイルを制御できます。ブランドの一貫性を保ちたい場合に効果的です。\n\nGenerate Similar機能では、画像の一部を選択して「似た要素をもっと生成」できます。テクスチャやパターンの拡張に最適です。"
+      },
+      {
+        "heading": "商用利用とワークフローの効率化",
+        "content": "Adobe Fireflyの商用利用における安全性と、実務でのワークフロー効率化について解説します。\n\n<marker>商用利用の安全性</marker>\nAdobe Fireflyは、Adobe Stock、公共ドメイン、著作権が期限切れのコンテンツで学習されています。このため、他のAI画像生成ツールと比較して著作権リスクが極めて低く、Adobeは「知的財産の補償」を提供しています。\n\n<marker>バッチ処理の効率化</marker>\nPhotoshopのActions機能とGenerative Fillを組み合わせることで、大量の画像に対して同じ種類のAI編集を一括適用できます。EC商品画像の背景統一などに最適です。\n\n<marker>チームでの活用</marker>\nAdobe Creative Cloud for Teamsでは、チーム全体でGenerative Creditsを共有でき、ブランドガイドラインに沿った生成結果を得るための設定を共有できます。\n\n<blockquote>Adobe Fireflyの最大の価値は「既存のクリエイティブワークフローを壊さずにAIを導入できる」ことです。Photoshopユーザーは新しいツールを覚える必要なく、即座にAIの恩恵を受けられます。</blockquote>\n\nLightroomにも統合が進んでおり、写真のRAW現像ワークフローにもAI機能が組み込まれつつあります。"
+      },
+      {
+        "heading": "まとめ：Adobe Fireflyでクリエイティブワークを加速",
+        "content": "Adobe Firefly × Photoshopの組み合わせは、プロのクリエイターから一般のビジネスユーザーまで、画像編集のあらゆる場面で生産性を向上させます。\n\n<div class=\"summary-box\">Firefly活用の効果：写真編集時間50%削減、商用利用の安全性確保、クリエイティブの幅が拡大</div>\n\n**特に効果的な活用シーン：**\n・EC商品画像の背景変更・統一\n・広告バナーの多サイズ展開\n・SNS投稿画像のリサイズ・拡張\n・不要物の除去・画像修正\n・コンセプトアートの高速プロトタイピング\n\n**Adobe Fireflyを選ぶべき人：**\n・既にAdobe CCを契約しているクリエイター\n・商用利用の著作権リスクを避けたい企業\n・Photoshopのワークフローを維持したい人\n・チームでの統一的なAI活用を求める組織\n\nAdobe Fireflyは「AIネイティブなPhotoshop」への進化の一歩です。今後もAdobe CCの各アプリに統合が進むことが予想されるため、早い段階で慣れておくことをお勧めします。"
+      }
+    ],
+    "tags": ["Adobe Firefly", "Photoshop", "Generative Fill", "画像編集", "商用利用", "クリエイティブ"],
+    "publishedAt": "2026-03-25",
+    "metaTitle": "Adobe Firefly × Photoshop完全連携ガイド2026｜Generative Fill実践",
+    "metaDescription": "Adobe FireflyとPhotoshopの連携機能を徹底解説。Generative Fill、Expand、商用利用の安全性と効率化テクニック。"
   }
 ];
