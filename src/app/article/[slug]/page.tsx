@@ -10,6 +10,7 @@ import AdBanner from '@/components/AdBanner';
 import Sidebar from '@/components/Sidebar';
 import { ArticleJsonLd, BreadcrumbJsonLd, FaqJsonLd, buildFaqFromSections } from '@/components/JsonLd';
 import AuthorBox from '@/components/AuthorBox';
+import ShareButtons from '@/components/ShareButtons';
 
 const BASE_URL = 'https://ai-tools-site-dusky.vercel.app';
 
@@ -193,6 +194,9 @@ export default async function ArticlePage({ params }: PageProps) {
 
             {/* Bottom Affiliate */}
             <AffiliateWidget toolSlug={article.toolSlug} />
+
+            {/* Share Buttons */}
+            <ShareButtons title={article.title} />
 
             {/* Author Box */}
             <AuthorBox />
