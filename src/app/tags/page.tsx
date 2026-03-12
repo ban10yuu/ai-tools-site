@@ -4,7 +4,7 @@ import { getTagsWithCount } from '@/lib/articles';
 import Sidebar from '@/components/Sidebar';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
 
-const BASE_URL = 'https://ai-tools-site-ten.vercel.app';
+const BASE_URL = 'https://ai-tools-site-dusky.vercel.app';
 
 export const metadata: Metadata = {
   title: 'タグ一覧｜AIツールのキーワード検索',

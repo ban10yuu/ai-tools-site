@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 
-const BASE_URL = 'https://ai-tools-site-ten.vercel.app';
+const BASE_URL = 'https://ai-tools-site-dusky.vercel.app';
 
 export const metadata: Metadata = {
   title: 'プライバシーポリシー',

@@ -6,7 +6,7 @@ import ArticleCard from '@/components/ArticleCard';
 import Sidebar from '@/components/Sidebar';
 import { BreadcrumbJsonLd, TagPageJsonLd } from '@/components/JsonLd';
 
-const BASE_URL = 'https://ai-tools-site-ten.vercel.app';
+const BASE_URL = 'https://ai-tools-site-dusky.vercel.app';
 
 export function generateStaticParams() {
   return getAllTags().map(tag => ({ slug: tag }));

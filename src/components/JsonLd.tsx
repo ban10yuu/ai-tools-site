@@ -1,6 +1,6 @@
 import { Article, ToolInfo, TOOL_CATEGORY_LABELS } from '@/lib/types';
 
-const BASE_URL = 'https://ai-tools-site-ten.vercel.app';
+const BASE_URL = 'https://ai-tools-site-dusky.vercel.app';
 const SITE_NAME = 'AI Tools Lab';
 const PUBLISHER = {
   '@type': 'Organization' as const,

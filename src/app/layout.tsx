@@ -1,10 +1,24 @@
 import type { Metadata } from 'next';
+import { Noto_Sans_JP, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+const notoSansJP = Noto_Sans_JP({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  variable: '--font-noto',
+});
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  variable: '--font-ibm-mono',
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ai-tools-site-ten.vercel.app'),
+  metadataBase: new URL('https://ai-tools-site-dusky.vercel.app'),
   title: {
     default: 'AI Tools Lab（AIツールラボ）｜最新AIツール徹底レビュー・比較2026',
     template: '%s｜AI Tools Lab',
@@ -55,7 +69,7 @@ export const metadata: Metadata = {
     siteName: 'AI Tools Lab',
     title: 'AI Tools Lab（AIツールラボ）｜最新AIツール徹底レビュー・比較2026',
     description: 'ChatGPT・Claude・Gemini・Midjourney等20以上のAIツールを徹底レビュー・比較。活用テクニック・料金比較・おすすめランキング。',
-    url: 'https://ai-tools-site-ten.vercel.app',
+    url: 'https://ai-tools-site-dusky.vercel.app',
   },
   twitter: {
     card: 'summary_large_image',
@@ -74,7 +88,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://ai-tools-site-ten.vercel.app',
+    canonical: 'https://ai-tools-site-dusky.vercel.app',
   },
   verification: {
     google: 'QNT_EwkmJ039_aVzqr1sKc_hySyn-ZpgLZDtAgxtsNo',
@@ -109,26 +123,28 @@ export default function RootLayout({
               '@type': 'WebSite',
               name: 'AI Tools Lab',
               alternateName: 'AIツールラボ',
-              url: 'https://ai-tools-site-ten.vercel.app',
+              url: 'https://ai-tools-site-dusky.vercel.app',
               description: 'ChatGPT・Claude・Gemini・Midjourney・Cursor等20以上のAIツールを徹底レビュー・比較する日本語メディア',
               publisher: {
                 '@type': 'Organization',
                 name: 'AI Tools Lab',
-                url: 'https://ai-tools-site-ten.vercel.app',
+                url: 'https://ai-tools-site-dusky.vercel.app',
               },
               inLanguage: 'ja',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: {
+                  '@type': 'EntryPoint',
+                  urlTemplate: 'https://ai-tools-site-dusky.vercel.app/tags/?q={search_term_string}',
+                },
+                'query-input': 'required name=search_term_string',
+              },
             }),
           }}
         />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
-          rel="stylesheet"
-        />
       </head>
-      <body className="antialiased min-h-screen flex flex-col">
+      <body className={`${notoSansJP.variable} ${ibmPlexMono.variable} antialiased min-h-screen flex flex-col`}>
         <Header />
         <main className="flex-1 relative z-10">{children}</main>
         <Footer />

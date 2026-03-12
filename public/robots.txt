@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ai-tools-site-ten.vercel.app/sitemap.xml
+Sitemap: https://ai-tools-site-dusky.vercel.app/sitemap.xml

@@ -5,7 +5,7 @@ import { TOOL_CATEGORY_LABELS, ToolCategory } from '@/lib/types';
 
 export const dynamic = 'force-static';
 
-const BASE_URL = 'https://ai-tools-site-ten.vercel.app';
+const BASE_URL = 'https://ai-tools-site-dusky.vercel.app';
 const TODAY = new Date().toISOString().slice(0, 10);
 
 export default function sitemap(): MetadataRoute.Sitemap {

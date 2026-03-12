@@ -9,8 +9,9 @@ import AffiliateWidget from '@/components/AffiliateWidget';
 import AdBanner from '@/components/AdBanner';
 import Sidebar from '@/components/Sidebar';
 import { ArticleJsonLd, BreadcrumbJsonLd, FaqJsonLd, buildFaqFromSections } from '@/components/JsonLd';
+import AuthorBox from '@/components/AuthorBox';
 
-const BASE_URL = 'https://ai-tools-site-ten.vercel.app';
+const BASE_URL = 'https://ai-tools-site-dusky.vercel.app';
 
 export function generateStaticParams() {
   return getAllSlugs().map(slug => ({ slug }));
@@ -192,6 +193,9 @@ export default async function ArticlePage({ params }: PageProps) {
 
             {/* Bottom Affiliate */}
             <AffiliateWidget toolSlug={article.toolSlug} />
+
+            {/* Author Box */}
+            <AuthorBox />
 
             {/* Related Articles */}
             {relatedArticles.length > 0 && (

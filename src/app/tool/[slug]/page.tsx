@@ -9,7 +9,7 @@ import ArticleCard from '@/components/ArticleCard';
 import Sidebar from '@/components/Sidebar';
 import { ToolPageJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 
-const BASE_URL = 'https://ai-tools-site-ten.vercel.app';
+const BASE_URL = 'https://ai-tools-site-dusky.vercel.app';
 
 export function generateStaticParams() {
   return tools.map(t => ({ slug: t.slug }));
