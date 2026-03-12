@@ -42,6 +42,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 人気記事ランキング — SEO内部リンク強化 */}
+      <section className="bg-[#0e0e1a] border-b border-[#252540] py-8">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-lg font-bold text-[#e0e4f0] mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-[#7c3aed] rounded-full" />
+            人気記事ランキング
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {(() => {
+              const seenTools = new Set<string>();
+              const popularArticles: typeof articles = [];
+              for (const a of articles) {
+                if (popularArticles.length >= 8) break;
+                if (seenTools.has(a.toolSlug) && popularArticles.length < 5) continue;
+                popularArticles.push(a);
+                seenTools.add(a.toolSlug);
+              }
+              return popularArticles.map((article, idx) => {
+                const tool = tools.find(t => t.slug === article.toolSlug);
+                return (
+                  <Link
+                    key={article.slug}
+                    href={`/article/${article.slug}/`}
+                    className="group flex items-start gap-3 cyber-panel p-3"
+                  >
+                    <span className="text-lg font-black text-[#00ff88] opacity-50 flex-shrink-0 w-6 text-right">
+                      {idx + 1}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="text-[10px] text-[#6a7090]">{tool?.name}</span>
+                      <h3 className="text-xs font-bold text-[#c8cce0] group-hover:text-[#00ff88] transition-colors line-clamp-2 leading-snug mt-0.5">
+                        {article.title}
+                      </h3>
+                    </div>
+                  </Link>
+                );
+              });
+            })()}
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
