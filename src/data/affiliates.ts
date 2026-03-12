@@ -1,5 +1,14 @@
 import { AffiliateLink } from '@/lib/types';
 
+// もしもアフィリエイト a_id (楽天提携済み)
+const MOSHIMO_A_ID = '5417189';
+
+function moshimoRakutenLink(url: string): string {
+  return `https://af.moshimo.com/af/c/click?a_id=${MOSHIMO_A_ID}&p_id=54&pc_id=54&pl_id=616&url=${encodeURIComponent(url)}`;
+}
+
+export const MOSHIMO_IMPRESSION_URL = `https://i.moshimo.com/af/i/impression?a_id=${MOSHIMO_A_ID}&p_id=54&pc_id=54&pl_id=616`;
+
 export const toolAffiliates: Record<string, AffiliateLink[]> = {
   chatgpt: [
     { service: 'openai', label: 'ChatGPT Plus に登録', url: 'https://chat.openai.com', badge: '人気No.1', price: '$20/月' },
@@ -70,6 +79,7 @@ export const generalAffiliates: AffiliateLink[] = [
   { service: 'cursor', label: 'Cursor Pro', url: 'https://cursor.com', price: '$20/月' },
   { service: 'notion', label: 'Notion AI', url: 'https://notion.so', price: '$10/月〜' },
   { service: 'canva', label: 'Canva Pro', url: 'https://canva.com', price: '1,000円/月〜' },
+  { service: 'rakuten-books', label: 'AI関連書籍（楽天ブックス）', url: moshimoRakutenLink('https://books.rakuten.co.jp/search?sitem=AI+%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD&g=001'), badge: 'ポイント還元', price: '書籍' },
   { service: 'adobe', label: 'Adobe Creative Cloud', url: 'https://adobe.com', price: '月額制' },
   { service: 'github', label: 'GitHub Copilot', url: 'https://github.com/features/copilot', price: '$10/月' },
 ];
