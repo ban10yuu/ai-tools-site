@@ -13,7 +13,7 @@ export const articles: Article[] = [
       },
       {
         "heading": "料金プランと無料版の実力",
-        "content": "Geminiの料金体系は、無料版、Gemini Advanced（$20/月）、Google One AI Premium（$20/月 + 2TB Google One含む）の3つです。\n\n無料版でも基本的なAI対話が可能で、Google検索との連携やテキスト生成を制限付きで利用できます。カジュアルな利用であれば無料版でも十分です。\n\nGemini Advancedでは最新の大規模モデルにアクセスでき、長いコンテキストでの対話、高度な推論タスク、コーディング支援が利用可能です。さらに、Google One AI Premiumプランでは2TBのクラウドストレージが付帯し、Google Workspaceでの連携も強化されます。\n\nGoogleサービスのヘビーユーザーにとっては、$20/月でAI機能と2TBストレージが手に入るため、コストパフォーマンスは非常に優れています。"
+        "content": "Geminiの料金体系は、無料版、Google AI Pro（$19.99/月）、Google One AI Premium（$19.99/月 + 2TB Google One含む）の3つです。\n\n無料版でも基本的なAI対話が可能で、Google検索との連携やテキスト生成を制限付きで利用できます。カジュアルな利用であれば無料版でも十分です。\n\nGoogle AI Proでは最新の大規模モデルにアクセスでき、長いコンテキストでの対話、高度な推論タスク、コーディング支援が利用可能です。さらに、Google One AI Premiumプランでは2TBのクラウドストレージが付帯し、Google Workspaceでの連携も強化されます。\n\nGoogleサービスのヘビーユーザーにとっては、$19.99/月でAI機能と2TBストレージが手に入るため、コストパフォーマンスは非常に優れています。"
       },
       {
         "heading": "マルチモーダル能力の検証",
@@ -48,7 +48,7 @@ export const articles: Article[] = [
     "sections": [
       {
         "heading": "GeminiがGoogle Workspaceを変える",
-        "content": "Google Workspaceは世界で30億人以上が利用するビジネスツールスイートです。2026年現在、GeminiのAI機能がWorkspaceの各アプリに深く統合され、従来の手作業を大幅に効率化できるようになりました。\n\nこの記事では、Gmail、Docs、Sheets、Slides、Meetの各アプリでGeminiを活用する具体的なテクニックを紹介します。これらのテクニックを日常業務に取り入れることで、作業効率は体感で3倍以上の改善が見込めます。\n\nGemini for Workspaceは、Gemini Advanced（$20/月）またはGoogle Workspace Business以上のプランで利用可能です。すでにWorkspaceを使っている企業にとっては、最も低コストで導入できるAI活用ソリューションです。"
+        "content": "Google Workspaceは世界で30億人以上が利用するビジネスツールスイートです。2026年現在、GeminiのAI機能がWorkspaceの各アプリに深く統合され、従来の手作業を大幅に効率化できるようになりました。\n\nこの記事では、Gmail、Docs、Sheets、Slides、Meetの各アプリでGeminiを活用する具体的なテクニックを紹介します。これらのテクニックを日常業務に取り入れることで、作業効率は体感で3倍以上の改善が見込めます。\n\nGemini for Workspaceは、Google AI Pro（$19.99/月）またはGoogle Workspace Business以上のプランで利用可能です。すでにWorkspaceを使っている企業にとっては、最も低コストで導入できるAI活用ソリューションです。"
       },
       {
         "heading": "Gmail × Gemini：メール処理の革命",
@@ -99,7 +99,7 @@ export const articles: Article[] = [
       },
       {
         "heading": "料金プランの比較",
-        "content": "両サービスの料金プランを比較します。\n\nGeminiは無料版で基本的なAI検索が利用可能で、Gemini Advanced（$20/月）ではより高度なモデルと長いコンテキストが利用できます。2TBのGoogleストレージ付きという付加価値も大きいです。\n\nPerplexityは無料版で1日の検索回数に制限がありますが、基本的な調査には十分です。Pro版（$20/月）では無制限の検索、より高度なモデルの選択、ファイルアップロード機能が利用可能です。\n\n価格はどちらも月額$20で同じですが、GeminiはWorkspaceとの統合とストレージが付帯する分、総合的なコスパでは優位です。一方、Perplexityは検索特化の深い機能を提供しており、リサーチが主目的であれば十分な価値があります。\n\n無料版の比較では、Geminiの方が利用制限が緩く、日常的な検索には使いやすいです。Perplexityの無料版はPro検索の回数制限がやや厳しいですが、基本的な検索機能は充実しています。"
+        "content": "両サービスの料金プランを比較します。\n\nGeminiは無料版で基本的なAI検索が利用可能で、Google AI Pro（$19.99/月）ではより高度なモデルと長いコンテキストが利用できます。2TBのGoogleストレージ付きという付加価値も大きいです。\n\nPerplexityは無料版で1日の検索回数に制限がありますが、基本的な調査には十分です。Pro版（$20/月）では無制限の検索、より高度なモデルの選択、ファイルアップロード機能が利用可能です。\n\n価格はどちらも月額$20で同じですが、GeminiはWorkspaceとの統合とストレージが付帯する分、総合的なコスパでは優位です。一方、Perplexityは検索特化の深い機能を提供しており、リサーチが主目的であれば十分な価値があります。\n\n無料版の比較では、Geminiの方が利用制限が緩く、日常的な検索には使いやすいです。Perplexityの無料版はPro検索の回数制限がやや厳しいですが、基本的な検索機能は充実しています。"
       },
       {
         "heading": "まとめ：目的別のおすすめ",
@@ -127,7 +127,7 @@ export const articles: Article[] = [
     "sections": [
       {
         "heading": "Gemini × Workspace連携の全体像",
-        "content": "GoogleのAI「Gemini」は、Google Workspaceとの深い統合が最大の差別化ポイントです。Gmail、Googleドキュメント、スプレッドシート、スライド、Meetなど、日常的に使うGoogleサービスのすべてにAI機能が組み込まれています。\n\n<div class=\"summary-box\">Gemini for Workspace対応サービス：Gmail、ドキュメント、スプレッドシート、スライド、Meet、Chat、Drive</div>\n\n2026年現在、Gemini AdvancedプランまたはWorkspace向けのGemini for Google Workspaceアドオンを契約すると、すべてのGoogleサービスでAI機能が利用可能になります。\n\n他のAIチャットボット（ChatGPTやClaude）は外部ツールとして使う必要がありますが、Geminiは作業している場所に直接AIが存在するため、コピー＆ペーストの手間がなく、シームレスな体験を提供します。\n\nこの記事では、主要なGoogleサービスでの具体的な活用方法を解説していきます。"
+        "content": "GoogleのAI「Gemini」は、Google Workspaceとの深い統合が最大の差別化ポイントです。Gmail、Googleドキュメント、スプレッドシート、スライド、Meetなど、日常的に使うGoogleサービスのすべてにAI機能が組み込まれています。\n\n<div class=\"summary-box\">Gemini for Workspace対応サービス：Gmail、ドキュメント、スプレッドシート、スライド、Meet、Chat、Drive</div>\n\n2026年現在、Google AI ProプランまたはWorkspace向けのGemini for Google Workspaceアドオンを契約すると、すべてのGoogleサービスでAI機能が利用可能になります。\n\n他のAIチャットボット（ChatGPTやClaude）は外部ツールとして使う必要がありますが、Geminiは作業している場所に直接AIが存在するため、コピー＆ペーストの手間がなく、シームレスな体験を提供します。\n\nこの記事では、主要なGoogleサービスでの具体的な活用方法を解説していきます。"
       },
       {
         "heading": "Gmail × Gemini：メール業務を劇的に効率化",

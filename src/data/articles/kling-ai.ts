@@ -124,7 +124,7 @@ export const articles: Article[] = [
     "sections": [
       {
         "heading": "Kling AI Image-to-Videoの仕組みと強み",
-        "content": "Kling AIのImage-to-Video機能は、1枚の静止画から自然な動きのある動画を生成する技術です。Kuaishou社が開発したこの技術は、特に人物のリアルな動き再現において業界をリードしています。\n\n<div class=\"summary-box\">Kling AI I2Vの強み：リアルな人物描写、リップシンク対応、最大2分の長尺生成、手頃な料金</div>\n\n他のAI動画生成ツールと比較した場合、Kling AIは以下の点で優れています：\n・人物の表情や動きの自然さ\n・入力画像の特徴を忠実に保持する能力\n・最大2分という比較的長い動画の生成\n・$5.99/月からという手頃な料金設定\n\n2026年の最新バージョンでは、1080p解像度、60fpsの動画生成に対応し、品質面でもRunway MLに匹敵するレベルに達しています。\n\n特にSNS向けのショート動画コンテンツ制作において、Kling AIのコストパフォーマンスは非常に高いです。"
+        "content": "Kling AIのImage-to-Video機能は、1枚の静止画から自然な動きのある動画を生成する技術です。Kuaishou社が開発したこの技術は、特に人物のリアルな動き再現において業界をリードしています。\n\n<div class=\"summary-box\">Kling AI I2Vの強み：リアルな人物描写、リップシンク対応、最大2分の長尺生成、手頃な料金</div>\n\n他のAI動画生成ツールと比較した場合、Kling AIは以下の点で優れています：\n・人物の表情や動きの自然さ\n・入力画像の特徴を忠実に保持する能力\n・最大2分という比較的長い動画の生成\n・$6.99/月からという手頃な料金設定\n\n2026年の最新バージョンでは、1080p解像度、60fpsの動画生成に対応し、品質面でもRunway MLに匹敵するレベルに達しています。\n\n特にSNS向けのショート動画コンテンツ制作において、Kling AIのコストパフォーマンスは非常に高いです。"
       },
       {
         "heading": "効果的な入力画像の選び方と準備",
@@ -136,7 +136,7 @@ export const articles: Article[] = [
       },
       {
         "heading": "商用コンテンツ制作の実践例",
-        "content": "Kling AI Image-to-Videoを商用コンテンツ制作に活用する具体例を紹介します。\n\n<marker>ECサイトの商品動画</marker>\n商品写真からアニメーション動画を生成します。「The product slowly rotates on a white background, soft shadows」で商品の回転動画が作成でき、ECサイトの商品ページやSNS広告に活用できます。\n\n<marker>SNS広告のモーショングラフィックス</marker>\n静止画のバナーデザインに微妙な動きを追加して、スクロールを止めるインパクトのある広告を作成します。\n\n<marker>ストーリー性のあるショートムービー</marker>\n複数の静止画から動画クリップを生成し、編集ソフトで結合してストーリーのあるショートムービーを制作します。\n\n<marker>ファッション・美容コンテンツ</marker>\nモデルの写真からヘアスタイルがなびく動画や、メイクのビフォーアフター動画を生成します。\n\n<blockquote>Kling AIの料金はPro版で$5.99/月と非常に手頃です。Runway MLの$28/月と比較すると、コスト面で大きな優位性があります。品質との兼ね合いを考慮して使い分けましょう。</blockquote>"
+        "content": "Kling AI Image-to-Videoを商用コンテンツ制作に活用する具体例を紹介します。\n\n<marker>ECサイトの商品動画</marker>\n商品写真からアニメーション動画を生成します。「The product slowly rotates on a white background, soft shadows」で商品の回転動画が作成でき、ECサイトの商品ページやSNS広告に活用できます。\n\n<marker>SNS広告のモーショングラフィックス</marker>\n静止画のバナーデザインに微妙な動きを追加して、スクロールを止めるインパクトのある広告を作成します。\n\n<marker>ストーリー性のあるショートムービー</marker>\n複数の静止画から動画クリップを生成し、編集ソフトで結合してストーリーのあるショートムービーを制作します。\n\n<marker>ファッション・美容コンテンツ</marker>\nモデルの写真からヘアスタイルがなびく動画や、メイクのビフォーアフター動画を生成します。\n\n<blockquote>Kling AIの料金はPro版で$6.99/月と非常に手頃です。Runway MLの$28/月と比較すると、コスト面で大きな優位性があります。品質との兼ね合いを考慮して使い分けましょう。</blockquote>"
       },
       {
         "heading": "まとめ：Image-to-Videoで動画制作のハードルを下げる",

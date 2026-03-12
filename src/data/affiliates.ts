@@ -17,7 +17,7 @@ export const toolAffiliates: Record<string, AffiliateLink[]> = {
     { service: 'anthropic', label: 'Claude Pro に登録', url: 'https://claude.ai', badge: '高評価', price: '$20/月' },
   ],
   gemini: [
-    { service: 'google', label: 'Gemini Advanced に登録', url: 'https://gemini.google.com', price: '$20/月' },
+    { service: 'google', label: 'Google AI Pro に登録', url: 'https://gemini.google.com', price: '$19.99/月' },
   ],
   midjourney: [
     { service: 'midjourney', label: 'Midjourney に登録', url: 'https://midjourney.com', badge: 'クリエイター人気', price: '$10/月〜' },
@@ -35,10 +35,10 @@ export const toolAffiliates: Record<string, AffiliateLink[]> = {
     { service: 'cursor', label: 'Cursor Pro に登録', url: 'https://cursor.com', badge: '急成長', price: '$20/月' },
   ],
   'notion-ai': [
-    { service: 'notion', label: 'Notion AI を始める', url: 'https://notion.so', price: '$10/月〜' },
+    { service: 'notion', label: 'Notion AI を始める', url: 'https://notion.so', price: '$20/user/月〜' },
   ],
   'canva-ai': [
-    { service: 'canva', label: 'Canva Pro に登録', url: 'https://canva.com', badge: 'デザイン定番', price: '1,000円/月〜' },
+    { service: 'canva', label: 'Canva Pro に登録', url: 'https://canva.com', badge: 'デザイン定番', price: '1,180円/月' },
   ],
   'runway-ml': [
     { service: 'runway', label: 'Runway に登録', url: 'https://runwayml.com', price: '$12/月〜' },
@@ -59,10 +59,10 @@ export const toolAffiliates: Record<string, AffiliateLink[]> = {
     { service: 'suno', label: 'Suno AI に登録', url: 'https://suno.com', price: '$10/月〜' },
   ],
   'kling-ai': [
-    { service: 'kling', label: 'Kling AI に登録', url: 'https://klingai.com', price: '$5.99/月〜' },
+    { service: 'kling', label: 'Kling AI に登録', url: 'https://klingai.com', price: '$6.99/月〜' },
   ],
   deepl: [
-    { service: 'deepl', label: 'DeepL Pro に登録', url: 'https://deepl.com/pro', badge: '翻訳最高精度', price: '750円/月〜' },
+    { service: 'deepl', label: 'DeepL Starter に登録', url: 'https://deepl.com/pro', badge: '翻訳最高精度', price: '1,150円/月〜' },
   ],
   'gamma-ai': [
     { service: 'gamma', label: 'Gamma AI を始める', url: 'https://gamma.app', price: '$10/月〜' },
@@ -77,8 +77,8 @@ export const generalAffiliates: AffiliateLink[] = [
   { service: 'anthropic', label: 'Claude Pro', url: 'https://claude.ai', badge: '高評価', price: '$20/月' },
   { service: 'midjourney', label: 'Midjourney', url: 'https://midjourney.com', price: '$10/月〜' },
   { service: 'cursor', label: 'Cursor Pro', url: 'https://cursor.com', price: '$20/月' },
-  { service: 'notion', label: 'Notion AI', url: 'https://notion.so', price: '$10/月〜' },
-  { service: 'canva', label: 'Canva Pro', url: 'https://canva.com', price: '1,000円/月〜' },
+  { service: 'notion', label: 'Notion AI', url: 'https://notion.so', price: '$20/user/月〜' },
+  { service: 'canva', label: 'Canva Pro', url: 'https://canva.com', price: '1,180円/月' },
   { service: 'rakuten-books', label: 'AI関連書籍（楽天ブックス）', url: moshimoRakutenLink('https://books.rakuten.co.jp/search?sitem=AI+%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD&g=001'), badge: 'ポイント還元', price: '書籍' },
   { service: 'adobe', label: 'Adobe Creative Cloud', url: 'https://adobe.com', price: '月額制' },
   { service: 'github', label: 'GitHub Copilot', url: 'https://github.com/features/copilot', price: '$10/月' },

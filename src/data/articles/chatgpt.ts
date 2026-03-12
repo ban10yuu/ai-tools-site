@@ -55,7 +55,7 @@ export const articles: Article[] = [
       },
       {
         heading: '料金プラン・コストパフォーマンスの比較',
-        content: '3サービスの有料プランを比較すると、いずれも月額$20という価格帯で横並びです。\n\n**ChatGPT Plus（$20/月）**：GPT-5.4フルアクセス、DALL-E 3、Advanced Data Analysis、GPTs作成・利用。エコシステムの充実度を考えると最もコスパが高い。\n\n**Claude Pro（$20/月）**：最新Claudeモデルのフルアクセス、200Kトークンの長文処理、Artifacts、Projects機能。長文処理が必要なユーザーには最適。\n\n**Gemini Advanced（$20/月）**：最新Geminiモデル、2TBのGoogleストレージ、Workspaceとの統合。Google製品を多用するユーザーにはお得。\n\n無料版の比較では、ChatGPTとGeminiが比較的寛容な利用制限を設けている一方、Claudeの無料版はメッセージ数の制限がやや厳しいです。\n\nAPI料金はタスクや利用量によって大きく異なるため、開発者は各社の価格表を詳しく比較することをお勧めします。個人利用であれば、いずれのサービスも月額$20で十分な価値を提供しています。'
+        content: '3サービスの有料プランを比較すると、いずれも月額$20という価格帯で横並びです。\n\n**ChatGPT Plus（$20/月）**：GPT-5.4フルアクセス、DALL-E 3、Advanced Data Analysis、GPTs作成・利用。エコシステムの充実度を考えると最もコスパが高い。\n\n**Claude Pro（$20/月）**：最新Claudeモデルのフルアクセス、200Kトークンの長文処理、Artifacts、Projects機能。長文処理が必要なユーザーには最適。\n\n**Google AI Pro（$19.99/月）**：最新Geminiモデル、2TBのGoogleストレージ、Workspaceとの統合。Google製品を多用するユーザーにはお得。\n\n無料版の比較では、ChatGPTとGeminiが比較的寛容な利用制限を設けている一方、Claudeの無料版はメッセージ数の制限がやや厳しいです。\n\nAPI料金はタスクや利用量によって大きく異なるため、開発者は各社の価格表を詳しく比較することをお勧めします。個人利用であれば、いずれのサービスも月額$20で十分な価値を提供しています。'
       },
       {
         heading: 'まとめ：用途別おすすめAIチャット',

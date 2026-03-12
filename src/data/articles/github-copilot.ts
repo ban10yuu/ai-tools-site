@@ -140,7 +140,7 @@ export const articles: Article[] = [
       },
       {
         "heading": "まとめ：Copilotエコシステムの将来展望",
-        "content": "GitHub Copilotは、コード補完ツールから開発プロセス全体を支援するAIプラットフォームへと進化しました。\n\n<div class=\"summary-box\">2026年のCopilot：コード補完 + Workspace（計画・実行）+ Agent Mode（自律実行）+ Extensions（エコシステム）</div>\n\n**利用プランの選び方：**\n・Individual（$10/月）：コード補完とChat機能で十分な個人開発者\n・Business（$19/月）：WorkspaceとAgent Modeを活用したいチーム\n・Enterprise（$39/月）：Extensionsのカスタマイズと高度なセキュリティが必要な組織\n\n**Copilotが特に強い場面：**\n・GitHubエコシステムとの深い統合\n・Issue起点の開発ワークフロー\n・CI/CDパイプラインとの連携\n・大規模チームでの標準化\n\nCursorやClaude Codeとの比較では、GitHubとの統合の深さがCopilotの決定的な強みです。GitHubをメインの開発プラットフォームとして使っている組織にとって、Copilotは最も自然で効率的なAI開発支援ツールと言えるでしょう。"
+        "content": "GitHub Copilotは、コード補完ツールから開発プロセス全体を支援するAIプラットフォームへと進化しました。\n\n<div class=\"summary-box\">2026年のCopilot：コード補完 + Workspace（計画・実行）+ Agent Mode（自律実行）+ Extensions（エコシステム）</div>\n\n**利用プランの選び方：**\n・Pro（$10/月）：コード補完とChat機能で十分な個人開発者\n・Business（$19/月）：WorkspaceとAgent Modeを活用したいチーム\n・Enterprise（$39/月）：Extensionsのカスタマイズと高度なセキュリティが必要な組織\n\n**Copilotが特に強い場面：**\n・GitHubエコシステムとの深い統合\n・Issue起点の開発ワークフロー\n・CI/CDパイプラインとの連携\n・大規模チームでの標準化\n\nCursorやClaude Codeとの比較では、GitHubとの統合の深さがCopilotの決定的な強みです。GitHubをメインの開発プラットフォームとして使っている組織にとって、Copilotは最も自然で効率的なAI開発支援ツールと言えるでしょう。"
       }
     ],
     "tags": ["GitHub Copilot", "Workspace", "Agent Mode", "AI開発", "自動化", "GitHub"],
