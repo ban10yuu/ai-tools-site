@@ -7,187 +7,194 @@ import { TOOL_CATEGORY_LABELS, TOOL_CATEGORY_COLORS } from '@/lib/types';
 
 export default function Home() {
   const articles = getAllArticles();
-  const latestArticles = articles.slice(0, 12);
+  const latestArticles = articles.slice(0, 8);
   const categories = Object.entries(TOOL_CATEGORY_LABELS);
+
+  // Pick the first tool as the featured spotlight
+  const spotlightTool = tools[0];
+  const spotlightArticles = articles
+    .filter(a => a.toolSlug === spotlightTool.slug)
+    .slice(0, 2);
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[#0c0c14] border-b border-[#252540]">
-        <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-3xl md:text-5xl font-black mb-4">
-            <span className="text-[#00ff88]">最新AIツール</span>
-            <span className="text-white">徹底レビュー・比較</span>
-            <span className="text-[#7c3aed]">2026</span>
-          </h1>
-          <p className="text-sm md:text-base text-[#8890a8] mb-6 max-w-2xl mx-auto">
-            ChatGPT・Claude・Gemini・Midjourney・Cursor等{tools.length}以上のAIツールを
-            <br className="hidden md:block" />
-            徹底レビュー・比較。使い方・料金・活用テクニックを完全解説するAIツール専門メディア。
-          </p>
-
-          {/* Category Chips */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {categories.map(([key, label]) => (
+      {/* Hero: Single Tool Spotlight */}
+      <section className="bg-[#0c0c14] border-b border-[#1e1e30]">
+        <div className="max-w-7xl mx-auto px-4 pt-12 pb-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+            {/* Spotlight Left */}
+            <div className="lg:col-span-3">
+              <p className="text-xs font-semibold text-[#7c3aed] tracking-wide uppercase mb-3">
+                注目ツール
+              </p>
+              <h1 className="text-2xl md:text-4xl font-black text-white mb-3 leading-tight">
+                {spotlightTool.name}
+              </h1>
+              <p className="text-sm text-[#8890a8] leading-relaxed mb-5 max-w-xl">
+                {spotlightTool.company} が提供する{spotlightTool.name}を徹底解説。
+                料金プラン・使い方・他ツールとの比較まで、導入検討に必要な情報をまとめています。
+              </p>
               <Link
-                key={key}
-                href={`/category/${key}/`}
-                className="px-4 py-1.5 rounded-full text-xs font-semibold transition-colors bg-[#1a1a2e] border border-[#252540] text-[#c8cce0] hover:text-[#00ff88] hover:border-[#00ff8840]"
+                href={`/tool/${spotlightTool.slug}/`}
+                className="inline-block bg-[#7c3aed] text-white text-sm font-bold px-6 py-2.5 rounded hover:bg-[#6d28d9] transition-colors"
               >
-                {label}
+                {spotlightTool.name}のレビューを読む
               </Link>
-            ))}
-          </div>
+            </div>
 
+            {/* Spotlight Right: related articles */}
+            <div className="lg:col-span-2 space-y-3">
+              {spotlightArticles.map(article => (
+                <Link
+                  key={article.slug}
+                  href={`/article/${article.slug}/`}
+                  className="block bg-[#12121e] border border-[#252540] rounded p-4 hover:border-[#353560] transition-colors"
+                >
+                  <h3 className="text-sm font-bold text-[#e0e4f0] leading-snug line-clamp-2 mb-1">
+                    {article.title}
+                  </h3>
+                  <p className="text-xs text-[#6a7090] line-clamp-2">{article.excerpt}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 人気記事ランキング — SEO内部リンク強化 */}
-      <section className="bg-[#0e0e1a] border-b border-[#252540] py-8">
+      {/* Tool Comparison Strip */}
+      <section className="bg-[#0a0a14] border-b border-[#1e1e30] py-6">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-lg font-bold text-[#e0e4f0] mb-4 flex items-center gap-2">
-            <span className="w-1 h-5 bg-[#7c3aed] rounded-full" />
-            人気記事ランキング
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {(() => {
-              const seenTools = new Set<string>();
-              const popularArticles: typeof articles = [];
-              for (const a of articles) {
-                if (popularArticles.length >= 8) break;
-                if (seenTools.has(a.toolSlug) && popularArticles.length < 5) continue;
-                popularArticles.push(a);
-                seenTools.add(a.toolSlug);
-              }
-              return popularArticles.map((article, idx) => {
-                const tool = tools.find(t => t.slug === article.toolSlug);
-                return (
-                  <Link
-                    key={article.slug}
-                    href={`/article/${article.slug}/`}
-                    className="group flex items-start gap-3 cyber-panel p-3"
-                  >
-                    <span className="text-lg font-black text-[#00ff88] opacity-50 flex-shrink-0 w-6 text-right">
-                      {idx + 1}
-                    </span>
-                    <div className="min-w-0">
-                      <span className="text-[10px] text-[#6a7090]">{tool?.name}</span>
-                      <h3 className="text-xs font-bold text-[#c8cce0] group-hover:text-[#00ff88] transition-colors line-clamp-2 leading-snug mt-0.5">
-                        {article.title}
-                      </h3>
-                    </div>
-                  </Link>
-                );
-              });
-            })()}
+          <div className="flex items-center gap-3 overflow-x-auto pb-1">
+            <span className="text-xs text-[#6a7090] font-semibold flex-shrink-0">ツール一覧:</span>
+            {tools.slice(0, 12).map(tool => (
+              <Link
+                key={tool.slug}
+                href={`/tool/${tool.slug}/`}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded text-xs text-[#c8cce0] bg-[#12121e] border border-[#252540] hover:border-[#353560] transition-colors flex-shrink-0"
+              >
+                <span
+                  className="w-4 h-4 rounded flex items-center justify-center text-[0.5rem] font-black"
+                  style={{
+                    backgroundColor: tool.accentColor + '20',
+                    color: tool.accentColor,
+                  }}
+                >
+                  {tool.name.charAt(0)}
+                </span>
+                {tool.name}
+              </Link>
+            ))}
+            {tools.length > 12 && (
+              <span className="text-xs text-[#4a5070] flex-shrink-0">+{tools.length - 12}件</span>
+            )}
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex flex-col lg:flex-row gap-8">
+      <div className="max-w-7xl mx-auto px-4 py-10">
+        <div className="flex flex-col lg:flex-row gap-10">
           {/* Articles */}
-          <div className="flex-1">
-            <h2 className="text-lg font-bold text-[#e0e4f0] mb-4 flex items-center gap-2">
-              <span className="w-1 h-5 bg-[#00ff88] rounded-full" />
-              最新のAIツールレビュー・比較記事
+          <div className="flex-1 min-w-0">
+            {/* Latest Articles */}
+            <h2 className="text-base font-bold text-[#e0e4f0] mb-5">
+              最新のレビュー・比較記事
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
               {latestArticles.map(article => (
                 <ArticleCard key={article.slug} article={article} />
               ))}
             </div>
 
-            {/* Category Sections */}
-            <div className="mt-12 space-y-10">
-              {categories.map(([key, label]) => {
-                const categoryTools = tools.filter(t => t.category === key);
-                const categoryArticles = articles
-                  .filter(a => categoryTools.some(t => t.slug === a.toolSlug))
-                  .slice(0, 4);
+            {/* Category Sections -- varied layouts */}
+            {categories.map(([key, label], catIdx) => {
+              const categoryTools = tools.filter(t => t.category === key);
+              const categoryArticles = articles
+                .filter(a => categoryTools.some(t => t.slug === a.toolSlug))
+                .slice(0, catIdx === 0 ? 3 : 4);
 
-                return (
-                  <section key={key}>
-                    <div className="flex items-center justify-between mb-4">
-                      <h2 className="text-lg font-bold text-[#e0e4f0] flex items-center gap-2">
-                        <span
-                          className="w-1 h-5 rounded-full"
-                          style={{ backgroundColor: TOOL_CATEGORY_COLORS[key as keyof typeof TOOL_CATEGORY_COLORS] }}
-                        />
-                        {label}AIツール（{categoryTools.length}件）
-                      </h2>
-                      <Link
-                        href={`/category/${key}/`}
-                        className="text-xs text-[#00ff88] hover:underline"
-                      >
-                        もっと見る →
-                      </Link>
-                    </div>
+              if (categoryArticles.length === 0) return null;
 
-                    {/* Tool chips */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {categoryTools.map(tool => (
-                        <Link
-                          key={tool.slug}
-                          href={`/tool/${tool.slug}/`}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs bg-[#12122a] border border-[#252540] hover:border-[#00ff8840] hover:text-[#00ff88] transition-all"
-                        >
-                          <span
-                            className="w-5 h-5 rounded flex items-center justify-center text-[0.6rem] font-black"
-                            style={{
-                              backgroundColor: tool.accentColor + '20',
-                              color: tool.accentColor,
-                            }}
+              return (
+                <section key={key} className="mb-12">
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-base font-bold text-[#e0e4f0] flex items-center gap-2">
+                      <span
+                        className="w-1 h-5 rounded-full"
+                        style={{ backgroundColor: TOOL_CATEGORY_COLORS[key as keyof typeof TOOL_CATEGORY_COLORS] }}
+                      />
+                      {label}
+                    </h2>
+                    <Link
+                      href={`/category/${key}/`}
+                      className="text-xs text-[#7c3aed] hover:underline"
+                    >
+                      もっと見る
+                    </Link>
+                  </div>
+
+                  {catIdx === 0 ? (
+                    /* First category: 1 large + 2 small list */
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="md:col-span-2">
+                        <ArticleCard article={categoryArticles[0]} />
+                      </div>
+                      <div className="space-y-3">
+                        {categoryArticles.slice(1, 3).map(article => (
+                          <Link
+                            key={article.slug}
+                            href={`/article/${article.slug}/`}
+                            className="block bg-[#12121e] border border-[#252540] rounded p-3 hover:border-[#353560] transition-colors"
                           >
-                            {tool.name.charAt(0)}
-                          </span>
-                          <span className="text-[#c8cce0]">{tool.name}</span>
-                        </Link>
-                      ))}
-                    </div>
-
-                    {/* Category articles */}
-                    {categoryArticles.length > 0 && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {categoryArticles.map(article => (
-                          <ArticleCard key={article.slug} article={article} />
+                            <h3 className="text-xs font-bold text-[#c8cce0] line-clamp-2 leading-snug">
+                              {article.title}
+                            </h3>
+                            <p className="text-[0.65rem] text-[#4a5070] mt-1 line-clamp-1">{article.excerpt}</p>
+                          </Link>
                         ))}
                       </div>
-                    )}
-                  </section>
-                );
-              })}
-            </div>
+                    </div>
+                  ) : (
+                    /* Other categories: standard 2-col grid */
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {categoryArticles.map(article => (
+                        <ArticleCard key={article.slug} article={article} />
+                      ))}
+                    </div>
+                  )}
+                </section>
+              );
+            })}
 
-            {/* Tool Grid */}
-            <h2 className="text-lg font-bold text-[#e0e4f0] mt-12 mb-4 flex items-center gap-2">
-              <span className="w-1 h-5 bg-[#7c3aed] rounded-full" />
-              AIツール一覧 - 全{tools.length}ツール
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {tools.map(tool => (
-                <Link
-                  key={tool.slug}
-                  href={`/tool/${tool.slug}/`}
-                  className="cyber-panel p-3 text-center group"
-                >
-                  <div
-                    className="w-10 h-10 rounded-lg mx-auto mb-2 flex items-center justify-center text-lg font-black"
-                    style={{
-                      backgroundColor: tool.accentColor + '20',
-                      color: tool.accentColor,
-                    }}
+            {/* All Tools -- compact list, not a flashy grid */}
+            <section className="mt-4">
+              <h2 className="text-base font-bold text-[#e0e4f0] mb-4">
+                全{tools.length}ツール一覧
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                {tools.map(tool => (
+                  <Link
+                    key={tool.slug}
+                    href={`/tool/${tool.slug}/`}
+                    className="flex items-center gap-2 bg-[#12121e] border border-[#252540] rounded px-3 py-2 hover:border-[#353560] transition-colors"
                   >
-                    {tool.name.charAt(0)}
-                  </div>
-                  <div className="text-xs font-bold text-[#c8cce0] group-hover:text-[#00ff88] transition-colors">
-                    {tool.name}
-                  </div>
-                  <div className="text-[0.6rem] text-[#4a5070] mt-0.5">{tool.company}</div>
-                </Link>
-              ))}
-            </div>
+                    <span
+                      className="w-5 h-5 rounded flex items-center justify-center text-[0.55rem] font-black flex-shrink-0"
+                      style={{
+                        backgroundColor: tool.accentColor + '15',
+                        color: tool.accentColor,
+                      }}
+                    >
+                      {tool.name.charAt(0)}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="text-xs font-medium text-[#c8cce0] truncate block">{tool.name}</span>
+                      <span className="text-[0.6rem] text-[#4a5070]">{tool.company}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
           </div>
 
           {/* Sidebar */}

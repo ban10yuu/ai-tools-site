@@ -11,7 +11,7 @@ export default function ArticleCard({ article, showTool = true }: ArticleCardPro
   const tool = getToolBySlug(article.toolSlug);
 
   return (
-    <div className="cyber-panel block p-4 group">
+    <article className="bg-[#12121e] border border-[#252540] rounded p-4 hover:border-[#353560] transition-colors group">
       <Link href={`/article/${article.slug}/`}>
         <div className="flex items-center gap-2 mb-2">
           <span className={`category-pill ${ARTICLE_CATEGORY_COLORS[article.category]}`}>
@@ -22,7 +22,7 @@ export default function ArticleCard({ article, showTool = true }: ArticleCardPro
           )}
         </div>
 
-        <h3 className="text-sm font-bold text-[#e0e4f0] mb-2 group-hover:text-[#00ff88] transition-colors leading-snug line-clamp-2">
+        <h3 className="text-sm font-bold text-[#e0e4f0] mb-2 group-hover:text-[#c8b0ff] transition-colors leading-snug line-clamp-2">
           {article.title}
         </h3>
 
@@ -37,7 +37,7 @@ export default function ArticleCard({ article, showTool = true }: ArticleCardPro
             <Link
               key={tag}
               href={`/tag/${encodeURIComponent(tag)}/`}
-              className="text-[0.65rem] text-[#4a5070] bg-[#1a1a2e] px-1.5 py-0.5 rounded hover:text-[#00ff88] hover:bg-[#00ff8810] transition-colors"
+              className="text-[0.65rem] text-[#4a5070] bg-[#1a1a2e] px-1.5 py-0.5 rounded hover:text-[#8890a8] transition-colors"
             >
               #{tag}
             </Link>
@@ -45,6 +45,6 @@ export default function ArticleCard({ article, showTool = true }: ArticleCardPro
         </div>
         <time className="text-[0.65rem] text-[#4a5070]">{article.publishedAt}</time>
       </div>
-    </div>
+    </article>
   );
 }

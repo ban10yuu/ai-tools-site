@@ -3,11 +3,8 @@
 @theme inline {
   --font-sans: var(--font-noto), "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
   --font-mono: var(--font-ibm-mono), "Menlo", monospace;
-  --color-neon-green: #00ff88;
-  --color-neon-purple: #7c3aed;
-  --color-neon-cyan: #00d4ff;
-  --color-neon-pink: #ff6b9d;
-  --color-neon-amber: #fbbf24;
+  --color-brand: #7c3aed;
+  --color-accent: #00d4ff;
   --color-bg-primary: #0a0a14;
   --color-bg-surface: #12121e;
   --color-bg-elevated: #1a1a2e;
@@ -24,24 +21,15 @@ body {
   font-family: var(--font-noto), "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
 }
 
-
-/* Cyber panel card */
+/* Card base -- subtle, no glow */
 .cyber-panel {
   background: #12121e;
   border: 1px solid #252540;
   border-radius: 6px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  transition: border-color 0.2s ease;
 }
 .cyber-panel:hover {
-  border-color: #00ff8840;
-}
-
-
-/* Accent border */
-.accent-border-left {
-  border-left: 3px solid #00ff88;
+  border-color: #353560;
 }
 
 /* Article content styles */
@@ -52,9 +40,8 @@ body {
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
   padding: 0.625rem 0 0.625rem 1rem;
-  border-left: 3px solid #00ff88;
-  background: linear-gradient(to right, rgba(0, 255, 136, 0.06), transparent);
-  position: relative;
+  border-left: 3px solid #7c3aed;
+  background: linear-gradient(to right, rgba(124, 58, 237, 0.05), transparent);
 }
 
 .article-content h3 {
@@ -64,7 +51,7 @@ body {
   margin-top: 1.75rem;
   margin-bottom: 0.5rem;
   padding-left: 0.75rem;
-  border-left: 2px solid #7c3aed;
+  border-left: 2px solid #00d4ff;
 }
 
 .article-content p {
@@ -75,7 +62,7 @@ body {
 }
 
 .article-content strong {
-  color: #00ff88;
+  color: #e0e4f0;
   font-weight: 700;
 }
 
@@ -131,11 +118,10 @@ body {
   border-radius: 4px;
   flex-shrink: 0;
 }
-.rank-1 { background: #00cc6a; color: #0a0a14; }
-.rank-2 { background: #7c3aed; color: #fff; }
-.rank-3 { background: #00b8d4; color: #0a0a14; }
-.rank-other { background: #252540; color: #6a7090; }
-
+.rank-1 { background: #7c3aed; color: #fff; }
+.rank-2 { background: #00b8d4; color: #0a0a14; }
+.rank-3 { background: #252540; color: #c8cce0; }
+.rank-other { background: #1a1a2e; color: #6a7090; }
 
 /* Category pill */
 .category-pill {
