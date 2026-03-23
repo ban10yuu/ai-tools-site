@@ -128,7 +128,7 @@ export default function Sidebar() {
 
       {/* Ad */}
       <div className="bg-[#12121e] border border-[#252540] rounded p-4">
-        <p className="text-[0.6rem] text-[#4a5070] mb-1 text-center">ADVERTISEMENT</p>
+        <p className="text-[0.6rem] text-[#4a5070] mb-1 text-center">広告</p>
         <GoogleAd format="rectangle" />
       </div>
 

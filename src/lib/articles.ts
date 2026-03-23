@@ -22,7 +22,7 @@ import { articles as deeplArticles } from '@/data/articles/deepl';
 import { articles as gammaAiArticles } from '@/data/articles/gamma-ai';
 import { articles as v0VercelArticles } from '@/data/articles/v0-vercel';
 
-const allArticles: Article[] = [
+const _allArticlesRaw: Article[] = [
   ...chatgptArticles,
   ...claudeArticles,
   ...geminiArticles,
@@ -44,6 +44,12 @@ const allArticles: Article[] = [
   ...gammaAiArticles,
   ...v0VercelArticles,
 ];
+
+// Schedule publishing: exclude articles with future publishedAt dates
+const now = new Date();
+const allArticles: Article[] = _allArticlesRaw.filter(
+  a => new Date(a.publishedAt) <= now
+);
 
 export function getAllArticles(): Article[] {
   return allArticles.sort(
