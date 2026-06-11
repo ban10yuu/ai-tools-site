@@ -19,26 +19,29 @@ export default function Home() {
   return (
     <>
       {/* Hero: Single Tool Spotlight */}
-      <section className="bg-[#0c0c14] border-b border-[#1e1e30]">
-        <div className="max-w-7xl mx-auto px-4 pt-12 pb-10">
+      <section className="relative bg-white border-b border-slate-200 overflow-hidden">
+        <div className="absolute inset-0 hero-dots hero-dots-fade opacity-60 pointer-events-none" aria-hidden="true" />
+        <div className="relative max-w-7xl mx-auto px-4 pt-14 pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
             {/* Spotlight Left */}
             <div className="lg:col-span-3">
-              <p className="text-xs font-semibold text-[#7c3aed] tracking-wide uppercase mb-3">
+              <p className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1 tracking-wide mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 注目ツール
               </p>
-              <h1 className="text-2xl md:text-4xl font-black text-white mb-3 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-4 leading-tight">
                 {spotlightTool.name}
               </h1>
-              <p className="text-sm text-[#8890a8] leading-relaxed mb-5 max-w-xl">
+              <p className="text-sm md:text-base text-slate-600 leading-relaxed mb-6 max-w-xl">
                 {spotlightTool.company} が提供する{spotlightTool.name}を徹底解説。
                 料金プラン・使い方・他ツールとの比較まで、導入検討に必要な情報をまとめています。
               </p>
               <Link
                 href={`/tool/${spotlightTool.slug}/`}
-                className="inline-block bg-[#7c3aed] text-white text-sm font-bold px-6 py-2.5 rounded hover:bg-[#6d28d9] transition-colors"
+                className="inline-flex items-center gap-2 bg-emerald-600 text-white text-sm font-bold px-6 py-3 rounded-xl shadow-sm shadow-emerald-600/25 hover:bg-emerald-700 hover:shadow-md hover:shadow-emerald-600/25 transition-all"
               >
                 {spotlightTool.name}のレビューを読む
+                <span aria-hidden="true">→</span>
               </Link>
             </div>
 
@@ -48,12 +51,12 @@ export default function Home() {
                 <Link
                   key={article.slug}
                   href={`/article/${article.slug}/`}
-                  className="block bg-[#12121e] border border-[#252540] rounded p-4 hover:border-[#353560] transition-colors"
+                  className="block surface-card p-4 hover:-translate-y-0.5"
                 >
-                  <h3 className="text-sm font-bold text-[#e0e4f0] leading-snug line-clamp-2 mb-1">
+                  <h3 className="text-sm font-bold text-slate-900 leading-snug line-clamp-2 mb-1">
                     {article.title}
                   </h3>
-                  <p className="text-xs text-[#6a7090] line-clamp-2">{article.excerpt}</p>
+                  <p className="text-xs text-slate-500 line-clamp-2">{article.excerpt}</p>
                 </Link>
               ))}
             </div>
@@ -62,30 +65,24 @@ export default function Home() {
       </section>
 
       {/* Tool Comparison Strip */}
-      <section className="bg-[#0a0a14] border-b border-[#1e1e30] py-6">
+      <section className="bg-slate-50 border-b border-slate-200 py-5">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center gap-3 overflow-x-auto pb-1">
-            <span className="text-xs text-[#6a7090] font-semibold flex-shrink-0">ツール一覧:</span>
+          <div className="flex items-center gap-2.5 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <span className="text-xs text-slate-500 font-semibold flex-shrink-0">ツール一覧:</span>
             {tools.slice(0, 12).map(tool => (
               <Link
                 key={tool.slug}
                 href={`/tool/${tool.slug}/`}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded text-xs text-[#c8cce0] bg-[#12121e] border border-[#252540] hover:border-[#353560] transition-colors flex-shrink-0"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 bg-white border border-slate-200 hover:border-emerald-300 hover:text-emerald-700 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-colors flex-shrink-0"
               >
-                <span
-                  className="w-4 h-4 rounded flex items-center justify-center text-[0.5rem] font-black"
-                  style={{
-                    backgroundColor: tool.accentColor + '20',
-                    color: tool.accentColor,
-                  }}
-                >
+                <span className="w-4 h-4 rounded-full bg-slate-900 text-white flex items-center justify-center text-[0.5rem] font-black">
                   {tool.name.charAt(0)}
                 </span>
                 {tool.name}
               </Link>
             ))}
             {tools.length > 12 && (
-              <span className="text-xs text-[#4a5070] flex-shrink-0">+{tools.length - 12}件</span>
+              <span className="text-xs text-slate-400 flex-shrink-0">+{tools.length - 12}件</span>
             )}
           </div>
         </div>
@@ -97,7 +94,7 @@ export default function Home() {
           {/* Articles */}
           <div className="flex-1 min-w-0">
             {/* Latest Articles */}
-            <h2 className="text-base font-bold text-[#e0e4f0] mb-5">
+            <h2 className="text-lg font-extrabold tracking-tight text-slate-900 mb-5">
               最新のレビュー・比較記事
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
@@ -118,7 +115,7 @@ export default function Home() {
               return (
                 <section key={key} className="mb-12">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-base font-bold text-[#e0e4f0] flex items-center gap-2">
+                    <h2 className="text-lg font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
                       <span
                         className="w-1 h-5 rounded-full"
                         style={{ backgroundColor: TOOL_CATEGORY_COLORS[key as keyof typeof TOOL_CATEGORY_COLORS] }}
@@ -127,7 +124,7 @@ export default function Home() {
                     </h2>
                     <Link
                       href={`/category/${key}/`}
-                      className="text-xs text-[#7c3aed] hover:underline"
+                      className="text-xs font-semibold text-emerald-600 hover:text-emerald-700 hover:underline underline-offset-2"
                     >
                       もっと見る
                     </Link>
@@ -144,12 +141,12 @@ export default function Home() {
                           <Link
                             key={article.slug}
                             href={`/article/${article.slug}/`}
-                            className="block bg-[#12121e] border border-[#252540] rounded p-3 hover:border-[#353560] transition-colors"
+                            className="block surface-card p-3.5"
                           >
-                            <h3 className="text-xs font-bold text-[#c8cce0] line-clamp-2 leading-snug">
+                            <h3 className="text-xs font-bold text-slate-800 line-clamp-2 leading-snug">
                               {article.title}
                             </h3>
-                            <p className="text-[0.65rem] text-[#4a5070] mt-1 line-clamp-1">{article.excerpt}</p>
+                            <p className="text-[0.65rem] text-slate-400 mt-1 line-clamp-1">{article.excerpt}</p>
                           </Link>
                         ))}
                       </div>
@@ -168,7 +165,7 @@ export default function Home() {
 
             {/* All Tools -- compact list, not a flashy grid */}
             <section className="mt-4">
-              <h2 className="text-base font-bold text-[#e0e4f0] mb-4">
+              <h2 className="text-lg font-extrabold tracking-tight text-slate-900 mb-4">
                 全{tools.length}ツール一覧
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
@@ -176,20 +173,14 @@ export default function Home() {
                   <Link
                     key={tool.slug}
                     href={`/tool/${tool.slug}/`}
-                    className="flex items-center gap-2 bg-[#12121e] border border-[#252540] rounded px-3 py-2 hover:border-[#353560] transition-colors"
+                    className="flex items-center gap-2.5 bg-white border border-slate-200 rounded-xl px-3 py-2.5 hover:border-emerald-300 hover:shadow-sm transition-all"
                   >
-                    <span
-                      className="w-5 h-5 rounded flex items-center justify-center text-[0.55rem] font-black flex-shrink-0"
-                      style={{
-                        backgroundColor: tool.accentColor + '15',
-                        color: tool.accentColor,
-                      }}
-                    >
+                    <span className="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-[0.55rem] font-black flex-shrink-0">
                       {tool.name.charAt(0)}
                     </span>
                     <div className="min-w-0">
-                      <span className="text-xs font-medium text-[#c8cce0] truncate block">{tool.name}</span>
-                      <span className="text-[0.6rem] text-[#4a5070]">{tool.company}</span>
+                      <span className="text-xs font-medium text-slate-700 truncate block">{tool.name}</span>
+                      <span className="text-[0.6rem] text-slate-400">{tool.company}</span>
                     </div>
                   </Link>
                 ))}

@@ -1,14 +1,13 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-noto), "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-  --font-mono: var(--font-ibm-mono), "Menlo", monospace;
-  --color-brand: #7c3aed;
-  --color-accent: #00d4ff;
-  --color-bg-primary: #0a0a14;
-  --color-bg-surface: #12121e;
-  --color-bg-elevated: #1a1a2e;
-  --color-border-default: #252540;
+  --font-sans: var(--font-inter), var(--font-noto), "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  --color-brand: #10b981;
+  --color-brand-deep: #059669;
+  --color-accent: #6366f1;
+  --color-bg-primary: #f8fafc;
+  --color-bg-surface: #ffffff;
+  --color-border-default: #e2e8f0;
 }
 
 html {
@@ -16,80 +15,101 @@ html {
 }
 
 body {
-  background-color: #0a0a14;
-  color: #b0b8d0;
-  font-family: var(--font-noto), "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  background-color: #f8fafc;
+  color: #334155;
+  font-family: var(--font-inter), var(--font-noto), "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Card base -- subtle, no glow */
-.cyber-panel {
-  background: #12121e;
-  border: 1px solid #252540;
-  border-radius: 6px;
-  transition: border-color 0.2s ease;
+::selection {
+  background: #d1fae5;
+  color: #064e3b;
 }
-.cyber-panel:hover {
-  border-color: #353560;
+
+/* Card base -- crisp white surface, 1px border, soft shadow */
+.surface-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.surface-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px -8px rgba(15, 23, 42, 0.12);
+}
+
+/* Subtle dotted grid motif for hero sections */
+.hero-dots {
+  background-image: radial-gradient(circle at 1px 1px, #cbd5e1 1px, transparent 0);
+  background-size: 22px 22px;
+}
+.hero-dots-fade {
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
 }
 
 /* Article content styles */
 .article-content h2 {
   font-size: 1.375rem;
   font-weight: 800;
-  color: #e0e4f0;
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  margin-top: 2.75rem;
+  margin-bottom: 0.875rem;
   padding: 0.625rem 0 0.625rem 1rem;
-  border-left: 3px solid #7c3aed;
-  background: linear-gradient(to right, rgba(124, 58, 237, 0.05), transparent);
+  border-left: 3px solid #10b981;
+  background: linear-gradient(to right, #ecfdf5, transparent 70%);
+  border-radius: 0 10px 10px 0;
 }
 
 .article-content h3 {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #c8cce0;
-  margin-top: 1.75rem;
+  color: #1e293b;
+  margin-top: 2rem;
   margin-bottom: 0.5rem;
   padding-left: 0.75rem;
-  border-left: 2px solid #00d4ff;
+  border-left: 2px solid #6366f1;
 }
 
 .article-content p {
   font-size: 0.9375rem;
-  line-height: 1.9;
-  color: #b0b8d0;
+  line-height: 1.95;
+  color: #334155;
   margin-bottom: 1rem;
 }
 
 .article-content strong {
-  color: #e0e4f0;
+  color: #0f172a;
   font-weight: 700;
 }
 
 .article-content blockquote {
-  background: #1a1a2e;
-  border: 1px solid #252540;
-  border-left: 3px solid #00d4ff;
-  border-radius: 4px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #10b981;
+  border-radius: 10px;
   padding: 1.25rem 1.5rem 1.25rem 1.75rem;
   margin: 1.5rem 0;
   font-size: 0.9375rem;
-  color: #c8cce0;
+  color: #475569;
 }
 
-/* Dark scrollbar */
+/* Light scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a14;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #252540;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #353560;
+  background: #94a3b8;
 }
 
 /* Line clamp */
@@ -108,35 +128,43 @@ body {
 
 /* Rank badge */
 .rank-badge {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.625rem;
+  height: 1.625rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 900;
-  font-size: 0.75rem;
-  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.7rem;
+  border-radius: 9999px;
   flex-shrink: 0;
 }
-.rank-1 { background: #7c3aed; color: #fff; }
-.rank-2 { background: #00b8d4; color: #0a0a14; }
-.rank-3 { background: #252540; color: #c8cce0; }
-.rank-other { background: #1a1a2e; color: #6a7090; }
+.rank-1 { background: #10b981; color: #fff; }
+.rank-2 { background: #e0e7ff; color: #4338ca; }
+.rank-3 { background: #e2e8f0; color: #334155; }
+.rank-other { background: #ffffff; color: #94a3b8; border: 1px solid #e2e8f0; }
 
 /* Category pill */
 .category-pill {
   font-size: 0.7rem;
-  padding: 0.2rem 0.6rem;
+  padding: 0.2rem 0.65rem;
   border-radius: 9999px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   border: 1px solid;
 }
 
 /* Star rating */
 .star-filled {
-  color: #fbbf24;
+  color: #f59e0b;
 }
 .star-empty {
-  color: #252540;
+  color: #e2e8f0;
+}
+
+/* Focus visibility for interactive elements */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+  border-radius: 6px;
 }

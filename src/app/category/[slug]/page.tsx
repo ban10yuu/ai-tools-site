@@ -68,22 +68,22 @@ export default async function CategoryPage({ params }: PageProps) {
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
             {/* Breadcrumb */}
-            <nav className="text-xs text-[#6a7090] mb-4 flex items-center gap-1.5">
-              <Link href="/" className="hover:text-[#00ff88] transition-colors">TOP</Link>
+            <nav className="text-xs text-slate-500 mb-4 flex items-center gap-1.5">
+              <Link href="/" className="hover:text-emerald-600 transition-colors">TOP</Link>
               <span>/</span>
-              <span className="text-[#4a5070]">{label}</span>
+              <span className="text-slate-400">{label}</span>
             </nav>
 
             {/* Category Header */}
-            <div className="cyber-panel p-6 mb-6">
-              <h1 className="text-xl md:text-2xl font-black text-[#e0e4f0] mb-2 flex items-center gap-3">
+            <div className="surface-card p-6 mb-6">
+              <h1 className="text-xl md:text-2xl font-black text-slate-900 mb-2 flex items-center gap-3">
                 <span
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: color }}
                 />
                 {label}AIツール
               </h1>
-              <p className="text-sm text-[#8890a8]">
+              <p className="text-sm text-slate-500">
                 {label}カテゴリの最新AIツールを徹底レビュー・比較。{categoryTools.length}ツール、{articles.length}記事を掲載中。
               </p>
             </div>
@@ -94,23 +94,17 @@ export default async function CategoryPage({ params }: PageProps) {
                 <Link
                   key={tool.slug}
                   href={`/tool/${tool.slug}/`}
-                  className="cyber-panel p-4 group"
+                  className="surface-card p-4 group"
                 >
                   <div className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center text-lg font-black flex-shrink-0"
-                      style={{
-                        backgroundColor: tool.accentColor + '20',
-                        color: tool.accentColor,
-                      }}
-                    >
+                    <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center text-lg font-black flex-shrink-0">
                       {tool.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-[#c8cce0] group-hover:text-[#00ff88] transition-colors">
+                      <div className="text-sm font-bold text-slate-700 group-hover:text-emerald-600 transition-colors">
                         {tool.name}
                       </div>
-                      <div className="text-[0.6rem] text-[#4a5070]">{tool.company}</div>
+                      <div className="text-[0.6rem] text-slate-400">{tool.company}</div>
                       <div className="flex items-center gap-0.5 mt-0.5">
                         {[1, 2, 3, 4, 5].map(star => (
                           <span key={star} className={`text-[0.5rem] ${star <= Math.round(tool.rating) ? 'star-filled' : 'star-empty'}`}>
@@ -125,7 +119,7 @@ export default async function CategoryPage({ params }: PageProps) {
             </div>
 
             {/* Articles */}
-            <h2 className="text-lg font-bold text-[#e0e4f0] mb-4 flex items-center gap-2">
+            <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
               <span className="w-1 h-5 rounded-full" style={{ backgroundColor: color }} />
               {label}の記事一覧（{articles.length}件）
             </h2>

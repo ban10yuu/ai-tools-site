@@ -42,15 +42,15 @@ export default function ShareButtons({ title }: Props) {
   };
 
   return (
-    <div className="cyber-panel p-4 my-6">
+    <div className="surface-card p-4 my-6">
       <div className="flex items-center gap-3 flex-wrap">
-        <span className="text-xs font-bold text-[#8890a8] tracking-wider">共有:</span>
+        <span className="text-xs font-bold text-slate-500 tracking-wider">共有:</span>
 
         {/* X (Twitter) */}
         <button
           onClick={() => handleShare('twitter')}
-          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-[0_0_12px_rgba(255,255,255,0.3)]"
-          style={{ backgroundColor: '#000', border: '1px solid #333' }}
+          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg hover:shadow-slate-900/20"
+          style={{ backgroundColor: '#0f172a' }}
           aria-label="Xで共有"
         >
           <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff">
@@ -61,7 +61,7 @@ export default function ShareButtons({ title }: Props) {
         {/* Facebook */}
         <button
           onClick={() => handleShare('facebook')}
-          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-[0_0_12px_rgba(24,119,242,0.4)]"
+          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
           style={{ backgroundColor: '#1877f2' }}
           aria-label="Facebookで共有"
         >
@@ -73,7 +73,7 @@ export default function ShareButtons({ title }: Props) {
         {/* LINE */}
         <button
           onClick={() => handleShare('line')}
-          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-[0_0_12px_rgba(6,199,85,0.4)]"
+          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg hover:shadow-green-500/25"
           style={{ backgroundColor: '#06c755' }}
           aria-label="LINEで共有"
         >
@@ -85,16 +85,16 @@ export default function ShareButtons({ title }: Props) {
         {/* Link Copy */}
         <button
           onClick={handleCopy}
-          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-[0_0_12px_rgba(0,212,255,0.4)]"
-          style={{ backgroundColor: '#1a1a2e', border: '1px solid #00d4ff50' }}
+          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/25"
+          style={{ backgroundColor: '#ecfdf5', border: '1px solid #a7f3d0' }}
           aria-label="リンクをコピー"
         >
           {copied ? (
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#00ff88" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           ) : (
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#00d4ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
               <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
             </svg>
@@ -102,7 +102,7 @@ export default function ShareButtons({ title }: Props) {
         </button>
 
         {copied && (
-          <span className="text-xs text-[#00ff88] animate-pulse">コピーしました!</span>
+          <span className="text-xs font-semibold text-emerald-600 animate-pulse">コピーしました!</span>
         )}
       </div>
     </div>

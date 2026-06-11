@@ -33,38 +33,38 @@ export default function TagsPage() {
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
             {/* Breadcrumb */}
-            <nav className="text-xs text-[#6a7090] mb-4 flex items-center gap-1.5">
-              <Link href="/" className="hover:text-[#00ff88] transition-colors">TOP</Link>
+            <nav className="text-xs text-slate-500 mb-4 flex items-center gap-1.5">
+              <Link href="/" className="hover:text-emerald-600 transition-colors">TOP</Link>
               <span>/</span>
-              <span className="text-[#4a5070]">タグ一覧</span>
+              <span className="text-slate-400">タグ一覧</span>
             </nav>
 
             {/* Header */}
-            <div className="cyber-panel p-6 mb-6">
-              <h1 className="text-xl md:text-2xl font-black text-[#e0e4f0] mb-2">
+            <div className="surface-card p-6 mb-6">
+              <h1 className="text-xl md:text-2xl font-black text-slate-900 mb-2">
                 タグ一覧
               </h1>
-              <p className="text-sm text-[#8890a8]">
+              <p className="text-sm text-slate-500">
                 AIツールに関する全{tagsWithCount.length}タグ。気になるキーワードをクリックして関連記事を読めます。
               </p>
             </div>
 
             {/* Tag Cloud */}
-            <div className="cyber-panel p-6">
+            <div className="surface-card p-6">
               <div className="flex flex-wrap gap-2">
                 {tagsWithCount.map(({ tag, count }) => {
                   const ratio = count / maxCount;
                   const size = ratio > 0.7 ? 'text-base' : ratio > 0.4 ? 'text-sm' : 'text-xs';
-                  const opacity = ratio > 0.7 ? 'text-[#00ff88]' : ratio > 0.4 ? 'text-[#c8cce0]' : 'text-[#8890a8]';
+                  const opacity = ratio > 0.7 ? 'text-emerald-600' : ratio > 0.4 ? 'text-slate-700' : 'text-slate-500';
 
                   return (
                     <Link
                       key={tag}
                       href={`/tag/${encodeURIComponent(tag)}/`}
-                      className={`${size} ${opacity} bg-[#1a1a2e] hover:bg-[#00ff8815] hover:text-[#00ff88] px-3 py-1.5 rounded-full border border-[#252540] hover:border-[#00ff8840] transition-all`}
+                      className={`${size} ${opacity} bg-slate-100 hover:bg-emerald-50 hover:text-emerald-600 px-3 py-1.5 rounded-full border border-slate-200 hover:border-emerald-200 transition-all`}
                     >
                       #{tag}
-                      <span className="text-[0.6rem] text-[#4a5070] ml-1">({count})</span>
+                      <span className="text-[0.6rem] text-slate-400 ml-1">({count})</span>
                     </Link>
                   );
                 })}

@@ -71,42 +71,31 @@ export default async function ToolPage({ params }: PageProps) {
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
             {/* Breadcrumb */}
-            <nav className="text-xs text-[#6a7090] mb-4 flex items-center gap-1.5">
-              <Link href="/" className="hover:text-[#00ff88] transition-colors">TOP</Link>
+            <nav className="text-xs text-slate-500 mb-4 flex items-center gap-1.5">
+              <Link href="/" className="hover:text-emerald-600 transition-colors">TOP</Link>
               <span>/</span>
-              <Link href={`/category/${tool.category}/`} className="hover:text-[#00ff88] transition-colors">
+              <Link href={`/category/${tool.category}/`} className="hover:text-emerald-600 transition-colors">
                 {TOOL_CATEGORY_LABELS[tool.category]}
               </Link>
               <span>/</span>
-              <span className="text-[#4a5070]">{tool.name}</span>
+              <span className="text-slate-400">{tool.name}</span>
             </nav>
 
             {/* Tool Header */}
-            <div className="cyber-panel p-6 mb-6">
+            <div className="surface-card p-6 mb-6">
               <div className="flex items-start gap-4">
-                <div
-                  className="w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-black flex-shrink-0"
-                  style={{
-                    backgroundColor: tool.accentColor + '20',
-                    color: tool.accentColor,
-                  }}
-                >
+                <div className="w-16 h-16 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-2xl font-black flex-shrink-0 shadow-sm">
                   {tool.name.charAt(0)}
                 </div>
                 <div className="flex-1">
-                  <h1 className="text-xl md:text-2xl font-black text-[#e0e4f0] mb-1">
+                  <h1 className="text-xl md:text-2xl font-black text-slate-900 mb-1">
                     {tool.name}
                   </h1>
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-xs text-[#6a7090]">{tool.company}</span>
+                    <span className="text-xs text-slate-500">{tool.company}</span>
                     <Link
                       href={`/category/${tool.category}/`}
-                      className="text-[0.65rem] px-2 py-0.5 rounded-full font-semibold hover:opacity-80 transition-opacity"
-                      style={{
-                        backgroundColor: tool.accentColor + '15',
-                        color: tool.accentColor,
-                        border: `1px solid ${tool.accentColor}30`,
-                      }}
+                      className="text-[0.65rem] px-2.5 py-0.5 rounded-full font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100 transition-colors"
                     >
                       {TOOL_CATEGORY_LABELS[tool.category]}
                     </Link>
@@ -117,9 +106,9 @@ export default async function ToolPage({ params }: PageProps) {
                         ★
                       </span>
                     ))}
-                    <span className="text-sm font-bold text-[#fbbf24] ml-1">{tool.rating}</span>
+                    <span className="text-sm font-bold text-amber-500 ml-1">{tool.rating}</span>
                   </div>
-                  <p className="text-sm text-[#8890a8] leading-relaxed">
+                  <p className="text-sm text-slate-500 leading-relaxed">
                     {tool.description}
                   </p>
                 </div>
@@ -130,7 +119,7 @@ export default async function ToolPage({ params }: PageProps) {
                 {tool.features.map(feature => (
                   <span
                     key={feature}
-                    className="text-[0.65rem] px-2 py-0.5 rounded bg-[#1a1a2e] text-[#8890a8] border border-[#252540]"
+                    className="text-[0.65rem] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200"
                   >
                     {feature}
                   </span>
@@ -138,13 +127,13 @@ export default async function ToolPage({ params }: PageProps) {
               </div>
 
               {/* Info Row */}
-              <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-[#6a7090]">
+              <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-slate-500">
                 <span>料金: {tool.pricing}</span>
                 <a
                   href={tool.officialUrl}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="text-[#00ff88] hover:underline"
+                  className="text-emerald-600 hover:underline"
                 >
                   公式サイト →
                 </a>
@@ -159,16 +148,11 @@ export default async function ToolPage({ params }: PageProps) {
                       href={aff.url}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      className="inline-flex items-center gap-1 px-4 py-2 rounded-md text-xs font-bold transition-all"
-                      style={{
-                        backgroundColor: tool.accentColor + '20',
-                        color: tool.accentColor,
-                        border: `1px solid ${tool.accentColor}40`,
-                      }}
+                      className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-sm shadow-emerald-600/25 hover:bg-emerald-700 hover:shadow-md hover:shadow-emerald-600/25 transition-all"
                     >
                       {aff.label}
                       {aff.badge && (
-                        <span className="text-[0.6rem] bg-[#00ff8820] text-[#00ff88] px-1.5 py-0.5 rounded-full ml-1">
+                        <span className="text-[0.6rem] font-semibold bg-white/20 text-white px-1.5 py-0.5 rounded-full ml-1">
                           {aff.badge}
                         </span>
                       )}
@@ -179,8 +163,8 @@ export default async function ToolPage({ params }: PageProps) {
             </div>
 
             {/* Articles */}
-            <h2 className="text-lg font-bold text-[#e0e4f0] mb-4 flex items-center gap-2">
-              <span className="w-1 h-5 bg-[#00ff88] rounded-full" />
+            <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <span className="w-1 h-5 bg-emerald-500 rounded-full" />
               {tool.name}の記事一覧（{articles.length}件）
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

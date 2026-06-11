@@ -96,43 +96,43 @@ export default async function ArticlePage({ params }: PageProps) {
         <div className="flex flex-col lg:flex-row gap-8">
           <article className="flex-1 min-w-0">
             {/* Breadcrumb */}
-            <nav className="text-xs text-[#6a7090] mb-4 flex items-center gap-1.5">
-              <Link href="/" className="hover:text-[#00ff88] transition-colors">TOP</Link>
+            <nav className="text-xs text-slate-500 mb-4 flex items-center gap-1.5">
+              <Link href="/" className="hover:text-emerald-600 transition-colors">TOP</Link>
               <span>/</span>
               {tool && (
                 <>
-                  <Link href={`/category/${tool.category}/`} className="hover:text-[#00ff88] transition-colors">
+                  <Link href={`/category/${tool.category}/`} className="hover:text-emerald-600 transition-colors">
                     {TOOL_CATEGORY_LABELS[tool.category]}
                   </Link>
                   <span>/</span>
-                  <Link href={`/tool/${tool.slug}/`} className="hover:text-[#00ff88] transition-colors">
+                  <Link href={`/tool/${tool.slug}/`} className="hover:text-emerald-600 transition-colors">
                     {tool.name}
                   </Link>
                   <span>/</span>
                 </>
               )}
-              <span className="text-[#4a5070] truncate">{article.title}</span>
+              <span className="text-slate-400 truncate">{article.title}</span>
             </nav>
 
             {/* Header */}
-            <div className="cyber-panel p-6 mb-6">
+            <div className="surface-card p-6 mb-6">
               <div className="flex items-center gap-2 mb-3">
                 <span className={`category-pill ${ARTICLE_CATEGORY_COLORS[article.category]}`}>
                   {ARTICLE_CATEGORY_LABELS[article.category]}
                 </span>
                 {tool && (
-                  <Link href={`/tool/${tool.slug}/`} className="text-xs text-[#6a7090] hover:text-[#00ff88]">
+                  <Link href={`/tool/${tool.slug}/`} className="text-xs text-slate-500 hover:text-emerald-600">
                     {tool.name}
                   </Link>
                 )}
-                <time className="text-xs text-[#4a5070] ml-auto">{article.publishedAt}</time>
+                <time className="text-xs text-slate-400 ml-auto">{article.publishedAt}</time>
               </div>
 
-              <h1 className="text-xl md:text-2xl font-black text-[#e0e4f0] leading-tight mb-3">
+              <h1 className="text-xl md:text-2xl font-black text-slate-900 leading-tight mb-3">
                 {article.title}
               </h1>
 
-              <p className="text-sm text-[#8890a8] leading-relaxed">
+              <p className="text-sm text-slate-500 leading-relaxed">
                 {article.excerpt}
               </p>
 
@@ -142,7 +142,7 @@ export default async function ArticlePage({ params }: PageProps) {
                   <Link
                     key={tag}
                     href={`/tag/${encodeURIComponent(tag)}/`}
-                    className="text-[0.65rem] text-[#4a5070] bg-[#1a1a2e] px-2 py-0.5 rounded hover:text-[#00ff88] hover:bg-[#00ff8810] transition-colors"
+                    className="text-[0.65rem] text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full hover:text-emerald-700 hover:bg-emerald-50 transition-colors"
                   >
                     #{tag}
                   </Link>
@@ -151,9 +151,9 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
 
             {/* TOC */}
-            <div className="cyber-panel p-4 mb-6">
-              <h2 className="text-xs font-bold text-[#c8cce0] mb-2 flex items-center gap-2">
-                <span className="w-1 h-3 bg-[#00d4ff] rounded-full" />
+            <div className="surface-card p-4 mb-6">
+              <h2 className="text-xs font-bold text-slate-700 mb-2 flex items-center gap-2">
+                <span className="w-1 h-3 bg-indigo-500 rounded-full" />
                 目次
               </h2>
               <ol className="space-y-1">
@@ -161,9 +161,9 @@ export default async function ArticlePage({ params }: PageProps) {
                   <li key={i}>
                     <a
                       href={`#section-${i}`}
-                      className="text-xs text-[#6a7090] hover:text-[#00ff88] transition-colors flex items-center gap-2 py-0.5"
+                      className="text-xs text-slate-500 hover:text-emerald-600 transition-colors flex items-center gap-2 py-0.5"
                     >
-                      <span className="text-[0.6rem] text-[#4a5070] font-mono w-4">{i + 1}.</span>
+                      <span className="text-[0.6rem] text-slate-400 font-mono w-4">{i + 1}.</span>
                       {section.heading}
                     </a>
                   </li>
@@ -204,8 +204,8 @@ export default async function ArticlePage({ params }: PageProps) {
             {/* Related Articles */}
             {relatedArticles.length > 0 && (
               <div className="mt-12">
-                <h2 className="text-lg font-bold text-[#e0e4f0] mb-4 flex items-center gap-2">
-                  <span className="w-1 h-5 bg-[#00ff88] rounded-full" />
+                <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                  <span className="w-1 h-5 bg-emerald-500 rounded-full" />
                   関連記事
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -219,8 +219,8 @@ export default async function ArticlePage({ params }: PageProps) {
             {/* Recommended (same tool, not in related) */}
             {sameToolArticles.length > 0 && (
               <div className="mt-8">
-                <h2 className="text-lg font-bold text-[#e0e4f0] mb-4 flex items-center gap-2">
-                  <span className="w-1 h-5 bg-[#7c3aed] rounded-full" />
+                <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                  <span className="w-1 h-5 bg-emerald-600 rounded-full" />
                   {tool?.name}のその他の記事
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -233,27 +233,27 @@ export default async function ArticlePage({ params }: PageProps) {
 
             {/* Category Navigation */}
             {tool && (
-              <div className="mt-8 cyber-panel p-4">
-                <h3 className="text-sm font-bold text-[#c8cce0] mb-3 flex items-center gap-2">
-                  <span className="w-1 h-4 bg-[#00d4ff] rounded-full" />
+              <div className="mt-8 surface-card p-4">
+                <h3 className="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+                  <span className="w-1 h-4 bg-indigo-500 rounded-full" />
                   カテゴリから探す
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   <Link
                     href={`/category/${tool.category}/`}
-                    className="text-xs text-[#00ff88] bg-[#00ff8810] px-3 py-1.5 rounded-full border border-[#00ff8830] hover:bg-[#00ff8820] transition-colors"
+                    className="text-xs text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"
                   >
                     {TOOL_CATEGORY_LABELS[tool.category]}の記事をもっと見る
                   </Link>
                   <Link
                     href={`/tool/${tool.slug}/`}
-                    className="text-xs text-[#7c3aed] bg-[#7c3aed10] px-3 py-1.5 rounded-full border border-[#7c3aed30] hover:bg-[#7c3aed20] transition-colors"
+                    className="text-xs text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-full border border-indigo-200 hover:bg-indigo-100 transition-colors"
                   >
                     {tool.name}の全記事を見る
                   </Link>
                   <Link
                     href="/tags/"
-                    className="text-xs text-[#8890a8] bg-[#1a1a2e] px-3 py-1.5 rounded-full border border-[#252540] hover:text-[#00ff88] transition-colors"
+                    className="text-xs text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 hover:text-emerald-600 transition-colors"
                   >
                     タグ一覧
                   </Link>

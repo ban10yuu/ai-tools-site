@@ -11,22 +11,22 @@ export default function ArticleCard({ article, showTool = true }: ArticleCardPro
   const tool = getToolBySlug(article.toolSlug);
 
   return (
-    <article className="bg-[#12121e] border border-[#252540] rounded p-4 hover:border-[#353560] transition-colors group">
+    <article className="surface-card p-5 group">
       <Link href={`/article/${article.slug}/`}>
         <div className="flex items-center gap-2 mb-2">
           <span className={`category-pill ${ARTICLE_CATEGORY_COLORS[article.category]}`}>
             {ARTICLE_CATEGORY_LABELS[article.category]}
           </span>
           {showTool && tool && (
-            <span className="text-xs text-[#6a7090]">{tool.name}</span>
+            <span className="text-xs text-slate-500">{tool.name}</span>
           )}
         </div>
 
-        <h3 className="text-sm font-bold text-[#e0e4f0] mb-2 group-hover:text-[#c8b0ff] transition-colors leading-snug line-clamp-2">
+        <h3 className="text-[0.9375rem] font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors leading-snug line-clamp-2">
           {article.title}
         </h3>
 
-        <p className="text-xs text-[#6a7090] line-clamp-2 leading-relaxed mb-3">
+        <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed mb-3">
           {article.excerpt}
         </p>
       </Link>
@@ -37,13 +37,13 @@ export default function ArticleCard({ article, showTool = true }: ArticleCardPro
             <Link
               key={tag}
               href={`/tag/${encodeURIComponent(tag)}/`}
-              className="text-[0.65rem] text-[#4a5070] bg-[#1a1a2e] px-1.5 py-0.5 rounded hover:text-[#8890a8] transition-colors"
+              className="text-[0.65rem] font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
             >
               #{tag}
             </Link>
           ))}
         </div>
-        <time className="text-[0.65rem] text-[#4a5070]">{article.publishedAt}</time>
+        <time className="text-[0.65rem] text-slate-400">{article.publishedAt}</time>
       </div>
     </article>
   );

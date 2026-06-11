@@ -12,18 +12,17 @@ export default function AffiliateWidget({ toolSlug }: AffiliateWidgetProps) {
   if (!affiliates || !tool) return null;
 
   return (
-    <div className="cyber-panel p-5 my-6">
-      <div className="flex items-center gap-2 mb-3">
-        <div
-          className="w-2 h-2 rounded-full"
-          style={{ backgroundColor: tool.accentColor }}
-        />
-        <h3 className="text-sm font-bold text-[#e0e4f0]">
+    <div className="surface-card p-6 my-6">
+      <div className="flex items-center gap-2.5 mb-2">
+        <span className="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-extrabold flex-shrink-0">
+          {tool.name.charAt(0)}
+        </span>
+        <h3 className="text-sm font-bold text-slate-900">
           {tool.name} を始めよう
         </h3>
       </div>
 
-      <p className="text-xs text-[#6a7090] mb-4">
+      <p className="text-xs text-slate-500 mb-4">
         {tool.pricing}
       </p>
 
@@ -33,24 +32,19 @@ export default function AffiliateWidget({ toolSlug }: AffiliateWidgetProps) {
           href={aff.url}
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="block w-full text-center py-2.5 px-4 rounded-md text-sm font-bold transition-all duration-200 mb-2"
-          style={{
-            backgroundColor: tool.accentColor + '20',
-            color: tool.accentColor,
-            border: `1px solid ${tool.accentColor}40`,
-          }}
+          className="flex items-center justify-center gap-2 w-full text-center py-3 px-4 rounded-xl text-sm font-bold mb-2 bg-emerald-600 text-white shadow-sm shadow-emerald-600/25 hover:bg-emerald-700 hover:shadow-md hover:shadow-emerald-600/25 transition-all duration-200"
         >
           {aff.label}
           {aff.badge && (
-            <span className="ml-2 text-[0.65rem] bg-[#00ff8820] text-[#00ff88] px-2 py-0.5 rounded-full">
+            <span className="text-[0.65rem] font-semibold bg-white/20 text-white px-2 py-0.5 rounded-full">
               {aff.badge}
             </span>
           )}
-          <span className="ml-2 text-[0.65rem] opacity-70">→</span>
+          <span className="text-[0.75rem] opacity-80">→</span>
         </a>
       ))}
 
-      <p className="text-[0.6rem] text-[#4a5070] mt-2 text-center">
+      <p className="text-[0.6rem] text-slate-400 mt-2 text-center">
         ※ 外部サイトへ遷移します
       </p>
     </div>

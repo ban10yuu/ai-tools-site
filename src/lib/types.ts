@@ -52,11 +52,11 @@ export const ARTICLE_CATEGORY_LABELS: Record<ArticleCategory, string> = {
 };
 
 export const ARTICLE_CATEGORY_COLORS: Record<ArticleCategory, string> = {
-  review: 'bg-emerald-900/50 text-emerald-300 border-emerald-500/30',
-  comparison: 'bg-purple-900/50 text-purple-300 border-purple-500/30',
-  tips: 'bg-cyan-900/50 text-cyan-300 border-cyan-500/30',
-  usecase: 'bg-amber-900/50 text-amber-300 border-amber-500/30',
-  news: 'bg-rose-900/50 text-rose-300 border-rose-500/30',
+  review: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  comparison: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+  tips: 'bg-sky-50 text-sky-700 border-sky-200',
+  usecase: 'bg-amber-50 text-amber-700 border-amber-200',
+  news: 'bg-rose-50 text-rose-700 border-rose-200',
 };
 
 export const TOOL_CATEGORY_LABELS: Record<ToolCategory, string> = {
@@ -69,10 +69,10 @@ export const TOOL_CATEGORY_LABELS: Record<ToolCategory, string> = {
 };
 
 export const TOOL_CATEGORY_COLORS: Record<ToolCategory, string> = {
-  chatbot: '#00ff88',
-  image: '#ff6b9d',
-  video: '#00d4ff',
-  coding: '#7c3aed',
-  writing: '#fbbf24',
+  chatbot: '#10b981',
+  image: '#ec4899',
+  video: '#0ea5e9',
+  coding: '#6366f1',
+  writing: '#f59e0b',
   business: '#f97316',
 };

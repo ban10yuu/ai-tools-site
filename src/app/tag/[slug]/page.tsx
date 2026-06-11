@@ -51,21 +51,21 @@ export default async function TagPage({ params }: PageProps) {
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
             {/* Breadcrumb */}
-            <nav className="text-xs text-[#6a7090] mb-4 flex items-center gap-1.5">
-              <Link href="/" className="hover:text-[#00ff88] transition-colors">TOP</Link>
+            <nav className="text-xs text-slate-500 mb-4 flex items-center gap-1.5">
+              <Link href="/" className="hover:text-emerald-600 transition-colors">TOP</Link>
               <span>/</span>
-              <Link href="/tags/" className="hover:text-[#00ff88] transition-colors">タグ一覧</Link>
+              <Link href="/tags/" className="hover:text-emerald-600 transition-colors">タグ一覧</Link>
               <span>/</span>
-              <span className="text-[#4a5070]">#{tag}</span>
+              <span className="text-slate-400">#{tag}</span>
             </nav>
 
             {/* Tag Header */}
-            <div className="cyber-panel p-6 mb-6">
-              <h1 className="text-xl md:text-2xl font-black text-[#e0e4f0] mb-2 flex items-center gap-3">
-                <span className="text-[#00ff88]">#</span>
+            <div className="surface-card p-6 mb-6">
+              <h1 className="text-xl md:text-2xl font-black text-slate-900 mb-2 flex items-center gap-3">
+                <span className="text-emerald-600">#</span>
                 {tag}
               </h1>
-              <p className="text-sm text-[#8890a8]">
+              <p className="text-sm text-slate-500">
                 「{tag}」に関するAIツールのレビュー・比較・活用記事{articles.length}件を掲載中。
               </p>
             </div>

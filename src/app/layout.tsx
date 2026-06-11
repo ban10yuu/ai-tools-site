@@ -1,20 +1,20 @@
 import type { Metadata } from 'next';
-import { Noto_Sans_JP, IBM_Plex_Mono } from 'next/font/google';
+import { Inter, Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['400', '500', '700', '900'],
   display: 'swap',
   variable: '--font-noto',
-});
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  display: 'swap',
-  variable: '--font-ibm-mono',
 });
 
 export const metadata: Metadata = {
@@ -144,7 +144,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
-      <body className={`${notoSansJP.variable} ${ibmPlexMono.variable} antialiased min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} ${notoSansJP.variable} antialiased min-h-screen flex flex-col bg-[#f8fafc] text-slate-700`}>
         <Header />
         <main className="flex-1 relative z-10">{children}</main>
         <Footer />

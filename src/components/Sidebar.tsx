@@ -13,8 +13,8 @@ export default function Sidebar() {
   return (
     <aside className="space-y-6">
       {/* Popular Articles */}
-      <div className="bg-[#12121e] border border-[#252540] rounded p-4">
-        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3">
+      <div className="surface-card p-5">
+        <h2 className="text-sm font-bold text-slate-900 mb-3">
           人気記事
         </h2>
         <ul className="space-y-2">
@@ -27,7 +27,7 @@ export default function Sidebar() {
                 <span className={`rank-badge flex-shrink-0 mt-0.5 ${i < 1 ? 'rank-1' : i < 2 ? 'rank-2' : i < 3 ? 'rank-3' : 'rank-other'}`}>
                   {i + 1}
                 </span>
-                <span className="text-xs text-[#c8cce0] group-hover:text-white transition-colors leading-snug line-clamp-2">
+                <span className="text-xs text-slate-700 group-hover:text-emerald-700 transition-colors leading-snug line-clamp-2">
                   {article.title}
                 </span>
               </Link>
@@ -37,8 +37,8 @@ export default function Sidebar() {
       </div>
 
       {/* Categories */}
-      <div className="bg-[#12121e] border border-[#252540] rounded p-4">
-        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3">
+      <div className="surface-card p-5">
+        <h2 className="text-sm font-bold text-slate-900 mb-3">
           カテゴリ
         </h2>
         <ul className="space-y-1.5">
@@ -52,7 +52,7 @@ export default function Sidebar() {
                   className="w-2 h-2 rounded-full flex-shrink-0"
                   style={{ backgroundColor: TOOL_CATEGORY_COLORS[key as keyof typeof TOOL_CATEGORY_COLORS] }}
                 />
-                <span className="text-xs text-[#c8cce0] group-hover:text-white transition-colors">
+                <span className="text-xs text-slate-700 group-hover:text-emerald-700 transition-colors">
                   {label}
                 </span>
               </Link>
@@ -62,8 +62,8 @@ export default function Sidebar() {
       </div>
 
       {/* Tool Ranking */}
-      <div className="bg-[#12121e] border border-[#252540] rounded p-4">
-        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3">
+      <div className="surface-card p-5">
+        <h2 className="text-sm font-bold text-slate-900 mb-3">
           AIツールランキング
         </h2>
         <ul className="space-y-2">
@@ -77,7 +77,7 @@ export default function Sidebar() {
                   {i + 1}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <span className="text-xs font-medium text-[#c8cce0] group-hover:text-white transition-colors">
+                  <span className="text-xs font-medium text-slate-700 group-hover:text-emerald-700 transition-colors">
                     {tool.name}
                   </span>
                   <div className="flex items-center gap-1 mt-0.5">
@@ -86,7 +86,7 @@ export default function Sidebar() {
                         ★
                       </span>
                     ))}
-                    <span className="text-[0.6rem] text-[#6a7090] ml-0.5">{tool.rating}</span>
+                    <span className="text-[0.6rem] text-slate-500 ml-0.5">{tool.rating}</span>
                   </div>
                 </div>
               </Link>
@@ -96,8 +96,8 @@ export default function Sidebar() {
       </div>
 
       {/* Affiliate */}
-      <div className="bg-[#12121e] border border-[#252540] rounded p-4">
-        <h2 className="text-sm font-bold text-[#e0e4f0] mb-3">
+      <div className="surface-card p-5">
+        <h2 className="text-sm font-bold text-slate-900 mb-3">
           おすすめAIツール
         </h2>
         <ul className="space-y-2">
@@ -110,16 +110,16 @@ export default function Sidebar() {
                 className="flex items-center justify-between py-1 group"
               >
                 <div>
-                  <span className="text-xs font-medium text-[#c8cce0] group-hover:text-white transition-colors">
+                  <span className="text-xs font-medium text-slate-700 group-hover:text-emerald-700 transition-colors">
                     {aff.label}
                   </span>
                   {aff.badge && (
-                    <span className="ml-1.5 text-[0.6rem] text-[#7c3aed] bg-[#7c3aed15] px-1.5 py-0.5 rounded">
+                    <span className="ml-1.5 text-[0.6rem] text-indigo-600 bg-indigo-50 px-1.5 py-0.5 rounded">
                       {aff.badge}
                     </span>
                   )}
                 </div>
-                <span className="text-[0.65rem] text-[#6a7090]">{aff.price}</span>
+                <span className="text-[0.65rem] text-slate-500">{aff.price}</span>
               </a>
             </li>
           ))}
@@ -127,8 +127,8 @@ export default function Sidebar() {
       </div>
 
       {/* Ad */}
-      <div className="bg-[#12121e] border border-[#252540] rounded p-4">
-        <p className="text-[0.6rem] text-[#4a5070] mb-1 text-center">広告</p>
+      <div className="surface-card p-5">
+        <p className="text-[0.6rem] text-slate-400 mb-1 text-center">広告</p>
         <GoogleAd format="rectangle" />
       </div>
 
